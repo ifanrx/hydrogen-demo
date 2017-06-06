@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view class="index">
+  <view class="index-profile">
+    <view class="index-profile__img" style="background-image: url('{{profile.avatarUrl}}')"></view>
+  </view>
+  <view class="index-title">
+    {{ title }}
+  </view>
+  <view class="index-todos">
+    <view class="index-todos__showLayer">
+      <view class="index-todos__item" wx:for="{{ bookList }}" wx:key="{{ index }}">
+        <view class="index-todos__title">书目：</view>
+        <view class="index-todos__controls--show" wx:if="{{ !item.isEditing }}">{{ item.bookName }}
+        </view>
+        <view class="index-todos__controls--edit-area" wx:else>
+         <input
+            type="text"
+            value="{{ item.bookName }}"
+            confirm-type="完成"
+            data-book-id="{{ item.id }}"
+            bindinput="getEditBookName"
+          />
+        </view>
+        <button
+          class="index-todos__controls--edit-btn btn"
+          type="primary"
+          data-book-id="{{ item.id }}"
+          data-index="{{index}}"
+          bindtap="{{ item.isEditing ? 'updateBook' : 'editBook' }}"
+        >
+        {{ item.isEditing ? '保存' : '编辑' }}
+        </button>
+        <button
+          class="index-todos__controls--delete btn"
+          bindtap="deleteBook"
+          type="warn"
+          data-book-id="{{ item.id }}"
+          bindtap="deleteBook"
+        >
+          删除
+        </button>
+      </view>
+    </view>
+
+    <view class="index-todos__input">
+      <input
+        type="text"
+        placeholder="我的床头书"
+        value="{{ createBookValue }}"
+        confirm-type="完成"
+        bindinput="inputBook"
+      />
+    </view>
+    <view class="index-todos__controls">
+      <button
+        class="index-todos__controls--create"
+        bindtap="createBook"
+        type="primary"
+      >
+        添加
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+{
+  "name": "baas-hello-world",
+  "version": "1.0.0",
+  "description": "baas-hello-world demo",
+  "main": "app.js",
+  "dependencies": {
+    "uuid": "3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "baas",
+    "hydrogen",
+    "hello-world",
+    "demo"
+  ],
+  "author": "ifanrx",
+  "license": "ISC"
+}
