@@ -1,0 +1,43 @@
+<view class="profile">
+  <view class='form'>
+    <view class='form-cell'>
+      <text class='form-cell-title'>姓名</text>
+      <input
+        placeholder="请填写您的姓名"
+        placeholder-class='form-cell-ph'
+        class='form-cell-input'
+        confirm-type='next'
+        auto-height='true'
+        bindinput='input_name'
+        value='{{name}}'></input>
+    </view>
+  <view class='form-cell'>
+    <text class='form-cell-title'>手机</text>
+    <input
+      placeholder="请填写您的手机号"
+      placeholder-class='form-cell-ph'
+      class='form-cell-input'
+      confirm-type='next'
+      data-cell='1'
+      type='number'
+      bindinput='input_phone'
+      maxlength='11'
+      value='{{phone}}'></input>
+  </view>
+  <view class='form-cell'>
+    <text class='form-cell-title'>公司</text>
+    <textarea
+      placeholder="请填写您所在的公司"
+      placeholder-class='form-cell-ph'
+      class='form-cell-input'
+      confirm-type='done'
+      data-cell='2'
+      auto-height='true'
+      bindinput='input_company'
+      value='{{company}}'></textarea>
+  </view>
+  </view>
+  <view class='btn btn-danger btn-md profile-btn' bindtap='submit'>
+    <text>保存</text>
+  </view>
+</view>

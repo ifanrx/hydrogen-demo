@@ -1,0 +1,50 @@
+page{
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+  flex-direction: column;
+  width: 650rpx;
+  margin-top: 34rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-cell{
+  margin-top: 50rpx;
+  padding-bottom: 30rpx;
+  border-bottom-color: #E6E6E6;
+  border-bottom-width: 2rpx;
+  border-bottom-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-cell-active{
+  border-bottom-color: #000;
+}
+
+.form-cell-title{
+  margin-right: 40rpx;
+  margin-left: 5rpx;
+  font-size: 36rpx;
+  color: #222222;
+}
+
+.form-cell-ph{
+  color: #999999;
+}
+
+.form-cell-input{
+  font-size: 36rpx;
+  width: 530rpx;
+}
+
+.profile-btn {
+  width: 650rpx;
+  margin-top: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+}

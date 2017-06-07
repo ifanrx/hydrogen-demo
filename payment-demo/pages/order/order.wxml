@@ -1,0 +1,38 @@
+<view class="order">
+  <view class="order-list">
+    <view class="order-list__item">
+      <text>3 个月 3000 元人民币</text>
+      <view bindtap="orderChecked" data-order-type='1'>
+       <image
+        class="order-list__checkbox-img"
+        src= "{{img_order_checked}}"
+        wx:if="{{ orderType == '1' }}"
+        ></image>
+       <image
+        class="order-list__checkbox-img"
+        src= "{{ img_order_unchecked }}"
+        wx:else
+        ></image>
+      </view>
+    </view>
+    <view class="order-list__item">
+      <text>12 个月 9600 元人民币</text>
+      <view bindtap="orderChecked" data-order-type='2'>
+       <image
+        class="order-list__checkbox-img"
+        src= "{{img_order_checked}}"
+        wx:if="{{ orderType == '2' }}"
+        ></image>
+       <image
+        class="order-list__checkbox-img"
+        src= "{{ img_order_unchecked }}"
+        wx:else
+        ></image>
+      </view>
+    </view>
+  </view>
+  <view
+    class="btn btn-danger btn-md order-btn"
+    bindtap="payOrder"
+  >支付</view>
+</view>

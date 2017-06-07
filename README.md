@@ -10,7 +10,7 @@
 
 ## hello-world，书架小程序 Demo
 
-![](assets/baas-hello-world.jpg)
+![](assets/hello-world.png)
 
 使用知晓云 BaaS JS SDK 实现的书架微信小程序。  
 通过这个 Demo 你可以学到：
@@ -29,7 +29,7 @@
 
 Clone 代码后，通过微信开发者工具添加项目。将您自己的 ClientID、数据表 ID 替换代码中（app.js）的演示 ID，即可运行代码。
 
-## LBS Demo，地图黄页 app
+## lbs-demo，地图黄页 app
 
 ![](assets/lbs-demo.png)
 
@@ -38,3 +38,12 @@ Clone 代码后，通过微信开发者工具添加项目。将您自己的 Clie
 - 更加丰富的微信小程序控件使用；
 - LBS 业务中微信小程序地图控件的使用；
 - 知晓云 BaaS JS SDK 多数据表协作实现复杂逻辑；
+
+## payment-demo，微信小程序支付 Demo
+
+![](assets/payment-demo.png)
+
+通过这个 Demo 你可以学到：
+
+- 使用知晓云 BaaS JS SDK 一行代码搞定支付
+- 一个简单的电商业务实现

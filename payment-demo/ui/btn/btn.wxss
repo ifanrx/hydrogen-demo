@@ -1,0 +1,27 @@
+
+.btn {
+  text-align: center;
+  font-size: 24rpx;
+  border: 1rpx solid #EEE;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.btn-danger {
+  color: #FFF;
+  background-color: #f46e65;
+}
+
+.btn-sm {
+  font-size: 24rpx;
+}
+
+.btn-md {
+  font-size: 28rpx;
+  padding: 20rpx 40rpx;
+}
+
+.btn-lg {
+  font-size: 32rpx;
+  padding: 30rpx 50rpx;
+}

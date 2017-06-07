@@ -1,0 +1,12 @@
+page {
+  font-size: 32rpx;
+  width: 100vw;
+  height: 100vh;
+}
+
+view,
+input,
+map {
+  box-sizing: border-box;
+}
+

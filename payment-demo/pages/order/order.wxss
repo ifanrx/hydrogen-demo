@@ -1,0 +1,29 @@
+
+.order {
+  width: 100vw;
+  height: 100vh;
+}
+
+.order-list {
+  margin-top: 40rpx;
+  justify-content: space-around;
+}
+
+.order-list__item {
+  width: 90%;
+  padding: 40rpx 0rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #EEE;
+}
+
+.order-list__checkbox-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.order-btn {
+  width: 90%;
+  margin: 40rpx auto;
+}
