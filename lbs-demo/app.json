@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/navigator/navigator",
+    "pages/company/company",
+    "pages/goToMap/goToMap"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "LBS Demo - 地图黄页",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  }
+}

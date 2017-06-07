@@ -1,0 +1,23 @@
+<view class="merchant-info" wx:if="{{ isMerchantInfoShow }}">
+  <view class="merchant-info-intro {{ activeMerchant.dynamicNews.length == 0 ? 'discount-wrap--hide': ''}}">
+
+    <navigator url="../company/company?id={{ activeMerchant.id }}" bindtap="hiddenMerchantInfo">
+      <view class="merchant-info-intro__img" style="background-image: url({{ activeMerchant.image.length > 1 ? activeMerchant.image[0]: activeMerchant.image }})" >
+      </view>
+    </navigator>
+
+    <view class="merchant-info-intro-wrap">
+      <view class="merchant-info-intro-wrap__name">{{ activeMerchant.title }}</view>
+      <view class="merchant-info-intro-wrap__distance">距离 {{ activeMerchant.distance }}m</view>
+    </view>
+
+  </view>
+
+  <button class="merchant-info-nav" hover-class="merchant-info-nav--hover" bindtap="navigateToMerchant">
+    <view class="merchant-info-nav__navigate">导航</view>
+  </button>
+
+  <view class="merchant-info-close" bindtap="hiddenMerchantInfo">
+    <view class="merchant-info__close-btn iconfont icon-cancel"></view>
+  </view>
+</view>

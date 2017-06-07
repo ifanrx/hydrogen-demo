@@ -27,4 +27,14 @@
 
 *Step 2:*
 
-Clone 代码后，通过微信开发者工具添加项目。将您自己的 ClientID、数据表 ID 替换代码中的演示 ID，即可运行代码。
+Clone 代码后，通过微信开发者工具添加项目。将您自己的 ClientID、数据表 ID 替换代码中（app.js）的演示 ID，即可运行代码。
+
+## LBS Demo，地图黄页 app
+
+![](assets/lbs-demo.png)
+
+通过这个 Demo 你可以学到：
+
+- 更加丰富的微信小程序控件使用；
+- LBS 业务中微信小程序地图控件的使用；
+- 知晓云 BaaS JS SDK 多数据表协作实现复杂逻辑；

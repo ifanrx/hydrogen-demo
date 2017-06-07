@@ -1,0 +1,107 @@
+@import '../../templates/merchant-info/merchant-info.wxss'
+
+
+map {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 69rpx;
+}
+
+.map--has-merchant-list {
+  bottom: 379rpx;
+}
+
+.navigator {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.navigator-merchants {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  min-width: 100%;
+  background: #fff;
+}
+
+.navigator-merchants.merchants-items-hidden {
+  bottom: 0;
+}
+
+.navigator-merchants__record {
+  letter-spacing: 10rpx;
+  border-bottom: 1rpx solid #eee;
+  width: 100vw;
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 24rpx;
+  color: black;
+}
+
+.navigator-merchants__toggle {
+  font-size: 20rpx;
+  display: inline-block;
+}
+
+.navigator-merchants__items {
+  position: relative;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  padding: 20rpx 20rpx;
+  width: 100vw;
+}
+
+.list-item,
+.list-item__img {
+  display: inline-block;
+}
+
+.list-item {
+  margin-right: 20rpx;
+}
+
+.list-item__title {
+  display: block;
+  width: 280rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  line-height: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  white-space: nowrap;
+  font-weight: 200;
+}
+
+.list-item__img {
+  box-sizing: content-box;
+  width: 280rpx;
+  height: 198rpx;
+  line-height: 0;
+  background-color: #FFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active-merchant-border {
+  border-top: 8rpx solid #ccc;
+}
+
+.navigator-overlay-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 15;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+}

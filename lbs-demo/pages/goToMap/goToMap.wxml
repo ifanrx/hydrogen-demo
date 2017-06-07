@@ -1,0 +1,11 @@
+<map class="goToMap"
+  markers="{{ markers }}"
+  controls="{{ controls }}"
+  longitude="{{ mapLongitude }}"
+  latitude="{{ mapLatitude }}"
+  bindcontroltap="controlTap"
+  polyline="{{ polyline }}"
+  scale="18"
+  include-points="{{ includePoints }}"
+>
+</map>

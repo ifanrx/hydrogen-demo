@@ -1,0 +1,38 @@
+/**
+ * 注意更新时不要覆盖 .iconfont
+ * font-size 默认设为 36rpx
+ */
+
+@font-face {
+  font-family: 'iconfont';  /* project id 254641 */
+  src: url('//at.alicdn.com/t/font_zhao5owawjulq5mi.eot');
+  src: url('//at.alicdn.com/t/font_zhao5owawjulq5mi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_zhao5owawjulq5mi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_zhao5owawjulq5mi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_zhao5owawjulq5mi.svg#iconfont') format('svg');
+}
+
+/**
+ * iconfont 有更新时不修改此处，只修改本文件其他部分
+ */
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 36rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-location:before { content: "\e68b"; }
+
+.icon-cancel:before { content: "\e68f"; }
+
+.icon-telephone:before { content: "\e690"; }
+
+.icon-arrow:before { content: "\e691"; }
+
+.icon-write:before { content: "\e692"; }
+
+.icon-spread-up:before { content: "\e699"; }
+
+.icon-spread-down:before { content: "\e698"; }

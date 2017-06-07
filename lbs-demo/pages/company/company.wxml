@@ -1,0 +1,44 @@
+<!-- company.wxml -->
+<view class="wrapper">
+<scroll-view class="container"  scroll-y="true"
+             style="height: 100%">
+  <!-- 商户信息介绍部分 -->
+  <view class="intro">
+    <!-- banner图片 -->
+    <swiper class="bannerPic" autoplay="true" interval="3000" indicator-dots="true">
+      <swiper-item wx:for="{{ bannerUrl }}">
+        <image src="{{ item }}" class="bannerPic"></image>
+      </swiper-item>
+    </swiper>
+
+    <!-- 介绍信息 -->
+    <view class="intro-info padding-leftRight">
+      <!-- 公司名称及logo -->
+      <view class="intro-title border-bottom">
+        <image src="{{ logoUrl }}" class="intro-title-logo"></image>
+        <view class="intro-title-text">{{ companyName }}</view>
+      </view>
+      <!-- 电话及地址 -->
+      <view class="intro-contact border-bottom" catchtap="makePhoneCall">
+        <view class="intro-contact-icon iconfont icon-telephone"></view>
+        <view class="intro-contact-text">{{ telephone }}</view>
+        <view class="intro-contact-more iconfont icon-arrow"></view>
+      </view>
+      <!-- 到这里去 -->
+      <view class="intro-contact border-bottom" catchtap="findLocation">
+        <view class="intro-contact-icon iconfont icon-location"></view>
+        <view class="intro-contact-text">{{ location }}</view>
+        <view class="intro-contact-more iconfont icon-arrow"></view>
+      </view>
+      <!-- 公司介绍 -->
+      <view class="intro-main {{ announcements.length !== 0 ? border-bottom : '' }}">
+        <view class="intro-main-title part-title">公司介绍</view>
+        <view class="intro-main-text">{{ introText }}</view>
+      </view>
+
+    </view>
+  </view>
+
+</scroll-view>
+</view>
+

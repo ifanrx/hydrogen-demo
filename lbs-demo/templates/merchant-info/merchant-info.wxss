@@ -1,0 +1,116 @@
+.merchant-info {
+  position: fixed;
+  left: 56rpx;
+  top: 198rpx;
+  width: 638rpx;
+  z-index: 20;
+}
+
+.merchant-info-nav {
+  display: flex;
+  width: 100%;
+  background: #FFF;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+  font-size: 32rpx;
+  color: #464645;
+  border: none;
+  border-radius: 0;
+  border-top: .5px solid #E4E4E3;
+}
+
+.merchant-info-nav::after {
+  border: none;
+  border-radius: 0;
+}
+
+.merchant-info-nav--hover {
+  background-color: (0, 0, 0, .1);
+  opacity: .7;
+}
+
+.merchant-info-nav__navigate {
+  display: inline-block;
+  margin-right: 18rpx;
+}
+
+.merchant-info-nav__navigate-icon {
+  display: inline-block;
+  font-size: 40rpx;
+  color: #464645;
+}
+
+.merchant-info-intro {
+  width: 100%;
+  padding: 26rpx 26rpx 0 26rpx;
+  background: #FFF;
+}
+
+.merchant-info-intro__img {
+  width: 100%;
+  height: 354rpx;
+  background-color: #FFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.merchant-info-intro-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding:24rpx 0;
+}
+
+.merchant-info-intro-wrap__name {
+  color: #000;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.merchant-info-intro-wrap__distance {
+  color: #A9AAA9;
+  font-size: 24rpx;
+}
+
+.merchant-info-close {
+  width: 100%;
+  margin-top: 116rpx;
+  background: transparent;
+}
+
+.merchant-info__close-btn {
+  color: #FFF;
+  font-size: 32px;
+  text-align: center;
+}
+
+.discount-wrap {
+  margin-top: 46rpx;
+  padding-bottom: 44rpx;
+  height: 36rpx;
+  overflow: hidden;
+}
+
+.discount-wrap-cell {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.discount-wrap-cell__info {
+  display: inline-block;
+  color: #464645;
+  font-size: 14px;
+}
+
+.discount-wrap-cell__icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 28rpx;
+}
+
+.discount-wrap--hide {
+  padding-bottom: 15rpx;
+}

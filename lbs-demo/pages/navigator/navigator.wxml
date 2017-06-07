@@ -1,0 +1,53 @@
+<view class="navigator">
+
+  <map
+    class="{{ isSpread ? 'map--has-merchant-list' : ''}}"
+    hidden="{{ !isMapShow }}"
+    longitude="{{ coreLongitude }}"
+    latitude="{{ coreLatitude }}"
+    scale="16"
+    bindcontroltap="{{ controlTap }}"
+    markers="{{ markers }}"
+    bindmarkertap="markerTap"
+    >
+  </map>
+
+  <view class="navigator-merchants">
+
+    <view
+      class="navigator-merchants__record"
+      bindtap="switchMerchantsItems"
+    >
+      这里发现了{{ merchantsData.length }}家公司
+      <view class="navigator-merchants__toggle iconfont {{ isSpread ? 'icon-spread-down':'icon-spread-up' }}"></view>
+    </view>
+
+    <view class="navigator-merchants__items"  hidden="{{ !isSpread }}">
+       <scroll-view
+        scroll-x="{{ true }}"
+        scroll-left="{{ scrollLeft }}"
+        scroll-with-animation="{{ true }}"
+        >
+        <block
+          class="navigator-merchants__item"
+          wx:for="{{ merchantsData }}"
+          >
+
+          <navigator id="{{ item.id }}" class="list-item"  url="../company/company?id={{ item.id }}">
+            <view
+              class="list-item__img {{ index == activeMerchantIndex ? 'active-merchant-border' : ''}}"
+              style="background-image: url({{ item.image.length > 1 ? item.image[0]: item.image }})"
+
+            ></view>
+
+            <view class="list-item__title">{{ item.title }}</view>
+          </navigator>
+
+        </block>
+      </scroll-view>
+    </view>
+
+  </view>
+  <include src="../../templates/merchant-info/merchant-info.wxml" />
+  <image src="{{ src }}" hidden="{{ isMapShow }}" class="navigator-overlay-img" bindtap="closePopup"/>
+</view>
