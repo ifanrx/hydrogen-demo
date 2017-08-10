@@ -7,12 +7,10 @@ Page({
   data: {
     profile: null,
     title: '我的书架',
-    tableID: 56, // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
-    bookList: null,
-    createBookValue: '',
-    inputBook: '',
-    editBookName: '',
-    inputEditBook: '',
+    tableID: 332, // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
+    bookList: [],
+    creatingBookName: '', // 当前正在创建的书名
+    editingBookName: '', // 当前正在编辑的书名
   },
 
   onLoad(options) {
@@ -39,22 +37,23 @@ Page({
     });
   },
 
-  inputBook(e) {
+  // 绑定添加书目的输入框事件，设置添加的数目名称
+  bindCreateBookNameInput(e) {
     let that = this
     let value = e.detail.value
     this.setData({
-      inputBook: value
+      creatingBookName: value
     })
   
   },
 
+  // 绑定添加书目的提交按钮点击事件，向服务器发送数据
   createBook(e) {
     let that = this
     let tableID = this.data.tableID
-    let inputBook = this.data.inputBook
+    let bookName = this.data.creatingBookName
     let data = {
-      bookName: inputBook,
-      isEditing: false
+      bookName: bookName,
     }
     let objects = {
       tableID,
@@ -72,14 +71,17 @@ Page({
     })
   },
 
-  editBook(e) {
+  // 绑定每一行书目的“编辑”按钮点击事件，控制输入框和文本显示
+  editBookButtonClicked(e) {
     let that = this
     let activeIndex = e.currentTarget.dataset.index
     let bookList = this.data.bookList
 
     bookList.forEach((elem, idx) => {
       if (activeIndex == idx) {
-        bookList[idx].isEditing = !bookList[idx].isEditing
+       elem.isEditing = true
+      } else {
+        elem.isEditing = false
       }
     })
 
@@ -88,24 +90,23 @@ Page({
     })
   },
 
-  getEditBookName(e) {
-    let that = this
-    let value = e.detail.value
-
+  // 绑定每一行书目的输入框事件，设定当前正在编辑的书名
+  bindEditBookNameInput(e) {
+    let bookName = e.detail.value
     this.setData({
-      editBookName: value
+      editingBookName: bookName,
     })
   },
 
+  // 绑定修改书目的提交按钮点击事件，向服务器发送数据
   updateBook(e) {
     let that = this
     let tableID = this.data.tableID
-    let recordID = e.target.dataset.bookId;
-    let editBookName = this.data.editBookName
+    let recordID = e.target.dataset.bookId
+    let bookName = this.data.editingBookName
 
     let data = {
-      bookName: editBookName,
-      isEditing: false
+      bookName: bookName,
     }
 
     let objects = {
@@ -118,22 +119,22 @@ Page({
     }, (err) => { })
   },
 
+  // 删除当前行的书目
   deleteBook(e) {
     let that = this
     let tableID = this.data.tableID
-    let recordID = e.target.dataset.bookId;
+    let recordID = e.target.dataset.bookId
 
-    // 删除 tableID 为 56 的数据表中 recordID的数据项
     let objects = {
       tableID,
       recordID
-    };
+    }
 
     wx.BaaS.deleteRecord(objects).then((res) => {
       that.fetchBookList()
     }, (err) => {
       console.dir(err)
-    });
+    })
   },
 
 })

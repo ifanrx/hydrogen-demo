@@ -23,11 +23,14 @@
 
 *Step 1:*
 
-前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定和数据表的设置。并通过控制台获取到 ClientID、数据表 ID。
+前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定。并通过控制台获取到 ClientID。
+
+*Step 1.1:*
+在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，添加一个类型为 String 的数据列：bookName。完成创建之后，在数据表界面的右侧帮助中心获取数据表 ID: tableID。
 
 *Step 2:*
 
-Clone 代码后，通过微信开发者工具添加项目。将您自己的 ClientID、数据表 ID 替换代码中（app.js）的演示 ID，即可运行代码。
+Clone 代码后，通过微信开发者工具添加项目。将您自己的 ClientID, tableID 替换代码中（app.js, index.js）的演示 ID，即可运行代码。
 
 ## lbs-demo，地图黄页 app
 

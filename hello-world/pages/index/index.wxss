@@ -32,30 +32,30 @@
   text-align: center;
 }
 
-.index-todos {
+.index-books {
   width: 80%;
   margin: 50rpx auto;
   overflow: hidden;
 }
 
-.index-todos__input {
+.index-books__input {
    width: 100%;
 }
 
-.index-todos__input input {
+.index-books__input input {
   border: 1rpx solid #eee;
   height: 60rpx;
   line-height: 50rpx;
   padding: 5rpx 10rpx;
 }
 
-.index-todos__showLayer {
+.index-books__showLayer {
   margin-top: 20rpx;
   max-height: 550rpx;
   overflow: auto;
 }
 
-.index-todos__item {
+.index-books__item {
   display: flex;
   min-height: 60rpx;
   justify-content: space-between;
@@ -63,25 +63,25 @@
   margin: 20rpx 0;
 }
 
-.index-todos__controls--show,
-.index-todos__controls--edit-area {
+.index-books__controls--show,
+.index-books__controls--edit-area {
   flex-basis: 40%;
 }
 
-.index-todos__controls--show,
-.index-todos__controls--edit-area > input {
+.index-books__controls--show,
+.index-books__controls--edit-area > input {
   height: 60rpx;
   line-height: 60rpx;
   border: 1rpx solid transparent;
   padding: 0 10rpx;
 }
 
-.index-todos__controls--edit-area > input {
+.index-books__controls--edit-area > input {
   border: 1rpx solid #eee;
   padding: 4rpx 10rpx;  /*hack 上下 4rpx 为了解决 input 显示时文字的移动*/
 }
 
-.index-todos__controls--create {
+.index-books__controls--create {
   margin: 40rpx 0;
 }
 

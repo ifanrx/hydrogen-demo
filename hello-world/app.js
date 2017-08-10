@@ -3,25 +3,8 @@ App({
   onLaunch: function() {
     let that = this
 
-    wx.getSystemInfo({
-      complete(res) {
-        if (res.errMsg == 'getSystemInfo:ok') {
-          let systemInfo = {
-            model: res.model,
-            language: res.language,
-            version: res.version,
-            system: res.system,
-            wH: res.windowHeight,
-            wW: res.windowWidth
-          }
-          that.systemInfo = systemInfo
-        }
-
-      }
-    })
-
     // 引入 BaaS SDK
-    require('./utils/sdk-v1.0.5.js')
+    require('./utils/sdk-v1.0.9.js')
 
     // 从 BaaS 后台获取 ClientID
     let clientId = 'efe557b4987a1f278248'
