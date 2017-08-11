@@ -41,6 +41,7 @@ Page({
   bindCreateBookNameInput(e) {
     let that = this
     let value = e.detail.value
+    console.log(value)
     this.setData({
       creatingBookName: value
     })
@@ -55,6 +56,7 @@ Page({
     let data = {
       bookName: bookName,
     }
+
     let objects = {
       tableID,
       data

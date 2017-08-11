@@ -19,7 +19,7 @@ Page({
 
   onLoad(options) {
 
-    let merchantID = parseInt(options.id)
+    let merchantID = options.id
 
     this.setData({
       merchantID,
