@@ -32,7 +32,6 @@
         </button>
         <button
           class="index-books__controls--delete btn"
-          bindtap="deleteBook"
           type="warn"
           data-book-id="{{ item.id }}"
           bindtap="deleteBook"
