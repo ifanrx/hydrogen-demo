@@ -50,9 +50,9 @@ Clone 代码后，通过微信开发者工具添加项目。将您自己的 Clie
 
 *Step 2:*
 
-在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，命名为 company，表的结构如下：
+在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，命名为 company，表的结构如下：
 
-字段 | 数据类型 | 示例
+字段 | 类型 | 示例
 --- | --- | ---
 title | string | 爱范儿
 address | string | 品牌街5号
