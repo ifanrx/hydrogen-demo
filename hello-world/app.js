@@ -4,7 +4,7 @@ App({
     let that = this
 
     // 引入 BaaS SDK
-    require('./utils/sdk-v1.0.9.js')
+    require('./utils/sdk-v1.0.10.js')
 
     // 从 BaaS 后台获取 ClientID
     let clientId = 'efe557b4987a1f278248'

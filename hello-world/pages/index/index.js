@@ -55,6 +55,7 @@ Page({
     let data = {
       bookName: bookName,
     }
+
     let objects = {
       tableID,
       data
