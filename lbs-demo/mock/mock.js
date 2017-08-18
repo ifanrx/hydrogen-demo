@@ -97,7 +97,7 @@ const merchantsData = [
   }
 ];
 
-module.export = {
+module.exports = {
   merchantsData,
   wechat,
   ifanr
