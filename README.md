@@ -93,6 +93,9 @@ lbs-demo 涉及地图接口的调用，本 demo 使用[高德地图的小程序 
 前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定。并通过控制台获取到 ClientID。
 
 *Step 2:*
+在微信小程序管理后台开通微信支付，并在知晓云管理后台“支付“模块配置相应证书。
+
+*Step 3:*
 
 在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，命名为 profile, 添加字段如下： 
 
@@ -103,7 +106,7 @@ phone | string | 18588888888
 company | string | 爱范儿
 is_member | boolean | true
 
-*Step 3:*
+*Step 4:*
 
 Clone 代码后，通过微信开发者工具添加项目；
 
