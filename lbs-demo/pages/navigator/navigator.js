@@ -2,6 +2,7 @@
 import config from '../../config/config'
 import constant from '../../config/constant'
 import utils from '../../utils/utils'
+import mapUtils from '../../utils/map'
 
 const app = getApp()
 
@@ -35,34 +36,16 @@ Page({
   // tabs part
   // 获取分类下的所有merchants数据
   getCategory() {
-    let that = this
-    let merchantID = config.TABLE_ID.MERCHANTS
-    let merchantsData = []
-    let tabs = this.data.tabs
-
-    // 简化版 demo 只需要科技分类的数据
-    let params = {
-      tableID: merchantID,
-      category__in: this.data.tabs[0].value, // 分类为科技IT
-      priority__gte: 1,
-      order_by: 'priority'
-    }
-
-    wx.BaaS.getRecordList(params)
-      .then(res => {
-
-        // 数组，每个成员为商家的对象
-        let merchantsData = res.data.objects
-        
-        that.setData({
-          merchantsData
-        })
-
-        // 获取merchants数据后，将数据
-        // 格式化到tabsMarkers
-        that.setTabsMarkers(merchantsData)
-      }, err => {})
-
+    mapUtils.getMerchants(this, (res) => {
+      // 数组，每个成员为商家的对象
+      let merchantsData = res.data.objects
+      this.setData({
+        merchantsData
+      })
+      // 获取merchants数据后，将数据
+      // 格式化到tabsMarkers
+      this.setTabsMarkers(merchantsData)
+    })
   },
 
   setTabsMarkers(merchants) {
@@ -186,7 +169,7 @@ Page({
 
     wx.getLocation({
       type: 'gcj02',
-      success: function(res) {
+      success: function (res) {
         let coreLatitude = res.latitude
         let coreLongitude = res.longitude
 

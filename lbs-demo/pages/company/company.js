@@ -1,5 +1,6 @@
 import config from '../../config/config'
 import utils from '../../utils/utils'
+import mapUtils from '../../utils/map'
 
 const app = getApp()
 
@@ -30,27 +31,17 @@ Page({
     // 调用promise.all接口用于所有状态完成后的后续操作
     // 简化版只涉及loadInfo
     wx.BaaS.Promise.all([
-      this.loadInfo(merchantID)
+      this.loadInfo()
     ]).finally(res => {
       utils.hideLoadingToast()
     })
   },
 
   loadInfo(id) {
-    let that = this
-    let playload = {
-      tableID: config.TABLE_ID.MERCHANTS,
-      recordID: id,
-    }
-
-    wx.BaaS.getRecord(playload)
-      .then(res => {
-        let merchantInfo = res.data
-
-        this.initInfo(merchantInfo)
-      }, err => {
-        console.log(err)
-      })
+    mapUtils.getMerchantDetail(this, (res) => {
+      let merchantInfo = res.data
+      this.initInfo(merchantInfo)
+    })
   },
 
   initInfo(data) {

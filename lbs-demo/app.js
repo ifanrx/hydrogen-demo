@@ -6,7 +6,7 @@ App({
 
     let that = this
 
-    require('/utils/sdk-v1.0.10.js')
+    require('./utils/sdk-v1.1.0')
     // 完成BaaS的验证和登录
     wx.BaaS.init(config.BAAS_CLIENT_ID)
     const userId = this.getUserId()
