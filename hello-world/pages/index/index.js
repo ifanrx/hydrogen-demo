@@ -1,13 +1,13 @@
 //index.js
 //获取应用实例
-
+import utils from '../../utils/index'
 var app = getApp()
 
 Page({
   data: {
     profile: null,
     title: '我的书架',
-    tableID: 332, // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
+    tableID: app.globalData.tableId, 
     bookList: [],
     creatingBookName: '', // 当前正在创建的书名
     editingBookName: '', // 当前正在编辑的书名
@@ -22,19 +22,11 @@ Page({
 
   // 获取 bookList 数据
   fetchBookList() {
-    let that = this
-    let tableID = this.data.tableID
-    let objects = {
-      tableID
-    }
-
-    wx.BaaS.getRecordList(objects).then((res) => {
-      that.setData({
+    utils.getBooks(this, (res) => {
+      this.setData({
         bookList: res.data.objects // bookList array, mock data in mock/mock.js
       })
-    }, (err) => {
-      console.dir(err)
-    });
+    })
   },
 
   // 绑定添加书目的输入框事件，设置添加的数目名称
@@ -49,26 +41,11 @@ Page({
 
   // 绑定添加书目的提交按钮点击事件，向服务器发送数据
   createBook(e) {
-    let that = this
-    let tableID = this.data.tableID
-    let bookName = this.data.creatingBookName
-    let data = {
-      bookName: bookName,
-    }
-
-    let objects = {
-      tableID,
-      data
-    }
-
-    // 创建一个数据项
-    wx.BaaS.createRecord(objects).then((res) => {
-      that.setData({
+    utils.addBook(this, (res) => {
+      this.setData({
         createBookValue: '',
       })
-      that.fetchBookList()
-    }, (err) => {
-      console.log(err)
+      this.fetchBookList()
     })
   },
 
@@ -101,40 +78,25 @@ Page({
 
   // 绑定修改书目的提交按钮点击事件，向服务器发送数据
   updateBook(e) {
-    let that = this
-    let tableID = this.data.tableID
-    let recordID = e.target.dataset.bookId
-    let bookName = this.data.editingBookName
 
-    let data = {
-      bookName: bookName,
-    }
+    this.setData({
+      curRecordId: e.target.dataset.bookId,
+    })
 
-    let objects = {
-      tableID,
-      recordID,
-      data
-    }
-    wx.BaaS.updateRecord(objects).then((res) => {
-      that.fetchBookList()
-    }, (err) => { })
+    utils.updataBook(this, (res) => {
+      this.fetchBookList()
+      this.setData({curRecordId: ''})
+    })
   },
 
   // 删除当前行的书目
   deleteBook(e) {
-    let that = this
-    let tableID = this.data.tableID
-    let recordID = e.target.dataset.bookId
-
-    let objects = {
-      tableID,
-      recordID
-    }
-
-    wx.BaaS.deleteRecord(objects).then((res) => {
-      that.fetchBookList()
-    }, (err) => {
-      console.dir(err)
+    this.setData({
+      curRecordId: e.target.dataset.bookId,
+    })
+    utils.deleteBook(this, (res) => {
+      this.fetchBookList()
+      this.setData({curRecordId: ''})
     })
   },
 

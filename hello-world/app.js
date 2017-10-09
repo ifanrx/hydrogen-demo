@@ -4,10 +4,10 @@ App({
     let that = this
 
     // 引入 BaaS SDK
-    require('./utils/sdk-v1.0.10.js')
+    require('./utils/sdk-v1.1.0')
 
-    // 从 BaaS 后台获取 ClientID
-    let clientId = 'efe557b4987a1f278248'
+  
+    let clientId = this.globalData.clientId
 
     wx.BaaS.init(clientId)
 
@@ -20,6 +20,11 @@ App({
           console.dir(err)
         })
     }
+  },
+
+  globalData: {
+    clientId: '', // 从 BaaS 后台获取 ClientID
+    tableId: '', // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
   },
 
   getUserId() {
