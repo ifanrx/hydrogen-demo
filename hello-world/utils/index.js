@@ -1,9 +1,4 @@
 
-/**
- * @description 获取书目列表
- * @param {}
- */
-
 let getBooks = (ctx, cb) => {
 
   let tableId = getApp().globalData.tableId,
