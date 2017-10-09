@@ -1,5 +1,6 @@
 //index.js
 import config from '../../config/config'
+import utils from '../../utils/index'
 const app = getApp()
 
 Page({
@@ -25,29 +26,23 @@ Page({
 
   getUserInfo(){
     // 等待用户登录后再发起获取信息操作
-    setTimeout(()=>{
+    setTimeout(() => {
       let userInfo = app.getUserInfo()
 
-      if(wx.BaaS.storage.get('uid')) {
-        Object.assign(userInfo,{
+      if (wx.BaaS.storage.get('uid')) {
+        userInfo = Object.assign(userInfo, {
           isLogin: true,
         })
-        this.setData({
-          userInfo
-        })
+        this.setData({userInfo})
       }
 
       // 从 BaaS 获取用户进一步信息
-      wx.BaaS.getRecordList({
-        tableID: config.BAAS.TABLE_ID,
-        created_by: wx.BaaS.storage.get('uid')
-      }).then(res => {
+      utils.getUserProfile(this, (res) => {
         let _userInfo = res.data.objects[0]
         Object.assign(userInfo,_userInfo)
         this.setData({
           userInfo
         })
-      }).catch(err=>{
       })
     }, 300)
   },

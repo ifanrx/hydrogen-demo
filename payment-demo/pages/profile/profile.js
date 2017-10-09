@@ -1,4 +1,5 @@
 import config from '../../config/config'
+import utils from '../../utils/index'
 
 const app = getApp()
 Page({
@@ -9,12 +10,7 @@ Page({
     isFirstCommit: true
   },
   onLoad: function() {
-
-    wx.BaaS.getRecordList({
-      tableID: config.BAAS.TABLE_ID,
-      created_by: wx.BaaS.storage.get('uid')
-    }).then(res => {
-
+    utils.getUserProfile(this, (res) => {
       let {
         name,
         phone,
@@ -67,7 +63,6 @@ Page({
   },
 
   submit(e){
-    // console.log(this.data)
     wx.showNavigationBarLoading()
     let {
       name,
@@ -80,23 +75,21 @@ Page({
     if( name && phone && company ){
 
       if(isFirstCommit) {
+        let data = {
+          name,
+          phone,
+          company,
+          is_member: false,
+          isProfileComplete: true,
+          isFirstCommit: false,
+        }
 
-        wx.BaaS.createRecord({
-          tableID: config.BAAS.TABLE_ID,
-          data: {
-            name,
-            phone,
-            company,
-            is_member: false,
-            isProfileComplete: true,
-            isFirstCommit: false,
-          }
-        }).then(res => {
+        utils.addUser(data, this, (res)=>{
           wx.hideNavigationBarLoading()
-           wx.navigateTo({
-            url: config.ROUTE.PAGE.INDEX
-          })
-        }, err => {
+          wx.navigateTo({
+           url: config.ROUTE.PAGE.INDEX
+         })
+        }, (err)=> {
           wx.hideNavigationBarLoading()
           wx.showModal({
             title: "啊咧！资料保存出错了。",
@@ -108,20 +101,19 @@ Page({
         })
 
       } else {
-        wx.BaaS.updateRecord({
-          tableID: config.BAAS.TABLE_ID,
-          recordID: recordID,
-          data: {
-            name,
-            phone,
-            company
-          }
-        }).then(res => {
+        let data = {
+          name,
+          phone,
+          company,
+          recordId: recordID,
+        }
+
+        utils.updateUser(data, this, (res) => {
           wx.hideNavigationBarLoading()
           wx.navigateTo({
             url: config.ROUTE.PAGE.INDEX
           })
-        }, err => {
+        }, (err) => {
           wx.showModal({
             title: "啊咧！资料保存出错了。",
             content: "大概是网络不太顺畅，可以稍后再尝试一下。",

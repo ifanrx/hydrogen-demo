@@ -4,7 +4,7 @@ App({
 
   onLaunch() {
 
-    require('./utils/sdk-v1.0.5')
+    require('./utils/sdk-v1.1.0')
 
       const clientID = config.BAAS.CLIENT_ID
 

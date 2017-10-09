@@ -1,5 +1,5 @@
 import config from '../../config/config'
-
+import utils from '../../utils/index'
 const app = getApp()
 var page
 
@@ -32,6 +32,11 @@ Page({
         tableID: config.BAAS.TABLE_ID,
         created_by: wx.BaaS.storage.get('uid')
       }).then(res => {
+        let merchandiseRecordID = res.data.objects[0].id
+        self.setData({merchandiseRecordID})
+      })
+
+      utils.getUserProfile(this, (res) => {
         let merchandiseRecordID = res.data.objects[0].id
         self.setData({merchandiseRecordID})
       })
@@ -77,15 +82,15 @@ Page({
         merchandiseRecordID  // 付款对应的那条记录，在这里，它是当前用户注册的记录，完成支付后，在后台订单页就可以看到对应关系
       }
 
+
       wx.BaaS.pay(params)
         .then(res => {
-          wx.BaaS.updateRecord({
-            tableID: config.BAAS.TABLE_ID,
-            recordID: merchandiseRecordID,
-            data: {
-              is_member: true
-            }
-          })
+
+          utils.updateUser({
+            recordId: merchandiseRecordID,
+            is_member: true
+          }, this)
+  
           wx.navigateTo({
             url: '/pages/index/index'
           })
