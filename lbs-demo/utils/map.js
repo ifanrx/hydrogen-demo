@@ -7,7 +7,6 @@ let getMerchants = (ctx, cb) => {
   query1.in('category', [ctx.data.tabs[0].value]) // 分类为科技 IT
   let query2 = new wx.BaaS.Query()
   query2.compare('priority', '>=', 1)
-  let query3 = new wx.BaaS.Query()
 
   let andQuery = wx.BaaS.Query.and(query1, query2)
   // 以 priority 字段升序

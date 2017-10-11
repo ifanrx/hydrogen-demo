@@ -9,14 +9,14 @@ Page({
     company: '',
     isFirstCommit: true
   },
-  onLoad: function() {
+  onLoad: function () {
     utils.getUserProfile(this, (res) => {
       let {
         name,
         phone,
         company
       } = res.data.objects[0]
-      
+
       if (res.data.meta.total_count != 0) {
         this.setData({
           name,
@@ -35,34 +35,34 @@ Page({
   },
 
   // 表单输入操作
-  input_name(e){
-      let that = this
-      this.throttle(()=>{
-        that.setData({
-          name: e.detail.value
-        })
-      },this)
+  input_name(e) {
+    let that = this
+    this.throttle(() => {
+      that.setData({
+        name: e.detail.value
+      })
+    }, this)
   },
 
-  input_phone(e){
-      let that = this
-      this.throttle(()=>{
-        that.setData({
-          phone: e.detail.value
-        })
-      },this)
+  input_phone(e) {
+    let that = this
+    this.throttle(() => {
+      that.setData({
+        phone: e.detail.value
+      })
+    }, this)
   },
 
-  input_company(e){
-      let that = this
-      this.throttle(()=>{
-        that.setData({
-          company: e.detail.value
-        })
-      },this)
+  input_company(e) {
+    let that = this
+    this.throttle(() => {
+      that.setData({
+        company: e.detail.value
+      })
+    }, this)
   },
 
-  submit(e){
+  submit(e) {
     wx.showNavigationBarLoading()
     let {
       name,
@@ -72,9 +72,9 @@ Page({
       recordID,
     } = this.data
 
-    if( name && phone && company ){
+    if (name && phone && company) {
 
-      if(isFirstCommit) {
+      if (isFirstCommit) {
         let data = {
           name,
           phone,
@@ -84,21 +84,23 @@ Page({
           isFirstCommit: false,
         }
 
-        utils.addUser(data, this, (res)=>{
-          wx.hideNavigationBarLoading()
-          wx.navigateTo({
-           url: config.ROUTE.PAGE.INDEX
-         })
-        }, (err)=> {
-          wx.hideNavigationBarLoading()
-          wx.showModal({
-            title: "啊咧！资料保存出错了。",
-            content: "大概是网络不太顺畅，可以稍后再尝试一下。",
-            showCancel: false,
-            confirmText: '好',
-            confirmColor: '#FD544A'
+        utils.addUser(data, this)
+          .then(res => {
+            wx.hideNavigationBarLoading()
+            wx.navigateTo({
+              url: config.ROUTE.PAGE.INDEX
+            })
           })
-        })
+          .catch(err => {
+            wx.hideNavigationBarLoading()
+            wx.showModal({
+              title: "啊咧！资料保存出错了。",
+              content: "大概是网络不太顺畅，可以稍后再尝试一下。",
+              showCancel: false,
+              confirmText: '好',
+              confirmColor: '#FD544A'
+            })
+          })
 
       } else {
         let data = {
@@ -108,20 +110,22 @@ Page({
           recordId: recordID,
         }
 
-        utils.updateUser(data, this, (res) => {
-          wx.hideNavigationBarLoading()
-          wx.navigateTo({
-            url: config.ROUTE.PAGE.INDEX
+        utils.updateUser(data, this)
+          .then(res => {
+            wx.hideNavigationBarLoading()
+            wx.navigateTo({
+              url: config.ROUTE.PAGE.INDEX
+            })
           })
-        }, (err) => {
-          wx.showModal({
-            title: "啊咧！资料保存出错了。",
-            content: "大概是网络不太顺畅，可以稍后再尝试一下。",
-            showCancel: false,
-            confirmText: '好',
-            confirmColor: '#FD544A'
+          .catch(err => {
+            wx.showModal({
+              title: "啊咧！资料保存出错了。",
+              content: "大概是网络不太顺畅，可以稍后再尝试一下。",
+              showCancel: false,
+              confirmText: '好',
+              confirmColor: '#FD544A'
+            })
           })
-        })
       }
     } else {
       console.log(this.data)
@@ -139,7 +143,7 @@ Page({
   throttle(method, context) {
     clearTimeout(this.data.timeout)
     this.setData({
-      timeout: setTimeout(function() {
+      timeout: setTimeout(function () {
         method.call(context)
       }, 300)
     })

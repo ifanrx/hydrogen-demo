@@ -83,7 +83,7 @@ Page({
       curRecordId: e.target.dataset.bookId,
     })
 
-    utils.updataBook(this, (res) => {
+    utils.updateBook(this, (res) => {
       this.fetchBookList()
       this.setData({curRecordId: ''})
     })
