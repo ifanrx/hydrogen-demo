@@ -5,7 +5,6 @@ var app = getApp()
 
 Page({
   data: {
-    profile: null,
     title: '我的书架',
     tableID: app.globalData.tableId, 
     bookList: [],
@@ -14,10 +13,12 @@ Page({
   },
 
   onLoad(options) {
-    this.setData({
-      profile: app.getUserInfo()
+    wx.BaaS.login().then(() => {
+      this.setData({
+        profile: wx.BaaS.storage.get('userinfo')
+      })
+      this.fetchBookList()
     })
-    this.fetchBookList()
   },
 
   // 获取 bookList 数据

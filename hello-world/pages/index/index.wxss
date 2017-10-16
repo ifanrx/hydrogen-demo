@@ -21,6 +21,10 @@
   background-size: contain;
 }
 
+.index-profile__img-hold {
+  text-align: center;
+}
+
 .index-profile__nickname {
   text-align: center;
   padding: 20rpx 0;
