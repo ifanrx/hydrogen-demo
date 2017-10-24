@@ -62,7 +62,7 @@ image | array | ["https://media.ifanrusercontent.com/media/tit/TyjAFWdpYzvklnEn.
 phone | string | 89054207
 latitude | number | 23.099532
 longitude | number | 113.323882
-category | array | ["科技IT	"]
+category | array | ["科技IT"]
 priority | integer | 4
 
 详细的数据返回实例请参考项目目录下的 ``mock`` 文件夹下的 ``mock.js``。
