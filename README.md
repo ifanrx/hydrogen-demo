@@ -15,16 +15,18 @@
 使用知晓云 BaaS JS SDK 实现的书架微信小程序。  
 通过这个 Demo 你可以学到：
 
-- 基本的微信小程序开发，控件交互等；
+- 基本的微信小程序开发，控件交互等；¯
 - 使用 SDK 对后端数据进行基础的增删改查操作；
 - 使用 SDK 进行用户登录及获取用户信息；
 
-点击[创建示例应用](https://cloud.minapp.com/dashboard/?demo=bookshelf-demo)，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
 ### 使用这个 Demo
 
+点击<a href="https://cloud.minapp.com/dashboard/?demo=bookshelf-demo" target="_blank">创建示例应用</a>，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
+
 *Step 1:*
 
+你也可以手动这么做：
 前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定。并通过控制台获取到 ClientID。
 
 *Step 1.1:*
@@ -44,9 +46,10 @@ Clone 代码后，通过微信开发者工具添加项目。将您自己的 Clie
 - LBS 业务中微信小程序地图控件的使用；
 - 知晓云 BaaS JS SDK 多数据表协作实现复杂逻辑；
 
-点击[创建示例应用](https://cloud.minapp.com/dashboard/?demo=lbs-demo)，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
 ### 使用这个 Demo
+
+点击<a href="https://cloud.minapp.com/dashboard/?demo=lbs-demo" target="_blank">创建示例应用</a>，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
 *Step 1:*
 
@@ -90,9 +93,10 @@ lbs-demo 涉及地图接口的调用，本 demo 使用[高德地图的小程序 
 - 使用知晓云 BaaS JS SDK 一行代码搞定支付
 - 一个简单的电商业务实现
 
-点击[创建示例应用](https://cloud.minapp.com/dashboard/?demo=payment-demo)，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
 ### 使用这个 Demo
+
+点击<a href="https://cloud.minapp.com/dashboard/?demo=payment-demo" target="_blank">创建示例应用</a>，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
 *Step 1:*
 
