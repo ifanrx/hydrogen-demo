@@ -5,10 +5,10 @@ const app = getApp()
 
 Page({
   data: {
-    img_logo: config.ROUTE.IMG.LOGO,
-    img_unLogin: config.ROUTE.IMG.UNLOGIN,
-    img_dot: config.ROUTE.IMG.DOT,
-    img_dot_active: config.ROUTE.IMG.DOT_ACTIVE,
+    imgLogo: config.ROUTE.IMG.LOGO,
+    imgLogout: config.ROUTE.IMG.UNLOGIN,
+    imgDot: config.ROUTE.IMG.DOT,
+    imgDotActive: config.ROUTE.IMG.DOT_ACTIVE,
     pageCount: 3,
     pageIndex: 0,
     isLogin: false,
@@ -21,7 +21,6 @@ Page({
   },
 
   onShow() {
-    console.log('show', wx.BaaS.storage.get('uid'))
     this.initPage()
   },
 

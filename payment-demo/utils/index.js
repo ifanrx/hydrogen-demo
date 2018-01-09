@@ -26,7 +26,7 @@ let updateUser = (params, ctx) => {
   let tableId = config.BAAS.TABLE_ID,
     { name, phone, company, recordId } = params
 
-  let is_member = params.is_member ? params.is_member : false
+  let isMember = params.isMember ? params.isMember : false
 
   let Users = new wx.BaaS.TableObject(tableId),
     User = Users.getWithoutData(recordId)
@@ -35,7 +35,7 @@ let updateUser = (params, ctx) => {
     name,
     phone,
     company,
-    is_member,
+    isMember,
   }
 
   User.set(data)

@@ -3,7 +3,7 @@
     <swiper bindchange='swiper'>
 
       <swiper-item id="index-intro">
-        <image class="index-intro__logo" src="{{ img_logo }}"></image>
+        <image class="index-intro__logo" src="{{ imgLogo }}"></image>
         <view class="index-intro__title h2">
           未来社整体介绍
         </view>
@@ -19,7 +19,7 @@
       </swiper-item>
 
       <swiper-item id="index-service">
-        <image class="index-intro__logo" src="{{ img_logo }}"></image>
+        <image class="index-intro__logo" src="{{ imgLogo }}"></image>
         <view class="index-intro__title h2">
           会员购买说明
         </view>
@@ -36,7 +36,7 @@
       <swiper-item class="index-profile">
         <image
           class="index-profile__avatar"
-          src="{{ userInfo.isLogin ? userInfo.avatar_url : img_unLogin }}"
+          src="{{ userInfo.isLogin ? userInfo.avatarUrl : imgLogout }}"
         ></image>
         <view class="index-profile__title h2" wx:if="{{ !userInfo.isLogin }}">
           <view class="">未登录</view>
@@ -78,7 +78,7 @@
             </view>
               <text>众创空间状态</text>
               <text>
-                {{ !userInfo.is_member ? '您还没有购买会员服务' : '已购买会员，请尽情享受 :-)' }}
+                {{ !userInfo.isMember ? '您还没有购买会员服务' : '已购买会员，请尽情享受 :-)' }}
               </text>
           </view>
 
@@ -97,7 +97,7 @@
          <!--  {{ item }} -->
           <image
             class="pager-img"
-            src="{{ pageIndex !=item ? img_dot : img_dot_active }}"
+            src="{{ pageIndex !=item ? imgDot : imgDotActive }}"
           ></image>
         </view>
     </view>

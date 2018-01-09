@@ -114,7 +114,9 @@ lbs-demo 涉及地图接口的调用，本 demo 使用[高德地图的小程序 
 name | string | Ernest
 phone | string | 18588888888
 company | string | 爱范儿
-is_member | boolean | true
+isMember | boolean | true
+isProfileComplete | boolean | false
+avatarUrl | string | 'https://xxx.com'
 
 *Step 4:*
 

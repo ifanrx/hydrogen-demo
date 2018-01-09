@@ -6,8 +6,6 @@ App({
     require('./utils/sdk-v1.1.3')
 
       const clientID = config.BAAS.CLIENT_ID
-      const uid = this.getUserID()
-
       wx.BaaS.init(clientID)
   },
 })
