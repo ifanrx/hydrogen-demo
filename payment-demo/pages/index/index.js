@@ -14,7 +14,7 @@ Page({
     isLogin: false,
     isProfileComplete: false,
     userInfo: null,
-
+    avatarUrl: '',
   },
 
   onLoad(options) {
@@ -53,7 +53,8 @@ Page({
       }
       userInfo = Object.assign(userInfo, _userInfo)
       this.setData({
-        userInfo
+        userInfo,
+        avatarUrl: wx.BaaS.storage.get('userinfo').avatarUrl
       })
     })
   },

@@ -36,7 +36,7 @@
       <swiper-item class="index-profile">
         <image
           class="index-profile__avatar"
-          src="{{ userInfo.isLogin ? userInfo.avatarUrl : imgLogout }}"
+          src="{{ userInfo.isLogin ? avatarUrl : imgLogout }}"
         ></image>
         <view class="index-profile__title h2" wx:if="{{ !userInfo.isLogin }}">
           <view class="">未登录</view>
@@ -94,7 +94,6 @@
           wx:key="index"
           wx:for="{{ pageCount }}"
           >
-         <!--  {{ item }} -->
           <image
             class="pager-img"
             src="{{ pageIndex !=item ? imgDot : imgDotActive }}"
