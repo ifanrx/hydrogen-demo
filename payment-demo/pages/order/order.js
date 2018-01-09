@@ -14,7 +14,7 @@ Page({
 
   onLoad: function(options) {
     let self = this
-    let uid = app.getUserID()
+    let uid = wx.BaaS.storage.get('uid')
 
     if (!uid) {
       wx.showModal({
@@ -54,7 +54,6 @@ Page({
   },
 
   payOrder(e) {
-
     let orderType = this.data.orderType
     let merchandiseRecordID = this.data.merchandiseRecordID
     if (merchandiseRecordID == null) {

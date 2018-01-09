@@ -129,7 +129,6 @@ Page({
           })
       }
     } else {
-      console.log(this.data)
       wx.hideNavigationBarLoading()
       wx.showModal({
         title: '资料木有齐全',

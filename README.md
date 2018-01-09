@@ -116,6 +116,7 @@ phone | string | 18588888888
 company | string | 爱范儿
 is_member | boolean | true
 isProfileComplete | boolean | false
+isFirstCommit | boolean | false
 
 *Step 4:*
 
