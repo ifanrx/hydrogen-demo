@@ -80,7 +80,7 @@ Page({
           phone,
           company,
           avatar_url: wx.BaaS.storage.get('userinfo').avatarUrl,
-          isMember: false,
+          is_member: false,
           isProfileComplete: true,
           isFirstCommit: false,
         }

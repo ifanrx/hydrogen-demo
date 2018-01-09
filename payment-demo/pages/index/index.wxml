@@ -78,7 +78,7 @@
             </view>
               <text>众创空间状态</text>
               <text>
-                {{ !userInfo.isMember ? '您还没有购买会员服务' : '已购买会员，请尽情享受 :-)' }}
+                {{ !userInfo.is_member ? '您还没有购买会员服务' : '已购买会员，请尽情享受 :-)' }}
               </text>
           </view>
 

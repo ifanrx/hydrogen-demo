@@ -88,7 +88,7 @@ Page({
 
           utils.updateUser({
             recordId: merchandiseRecordID,
-            isMember: true
+            is_member: true
           }, this)
   
           wx.navigateTo({
