@@ -12,6 +12,7 @@ page {
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 
@@ -55,6 +56,11 @@ swiper-item {
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+}
+
+.index-profile__authorization {
+  font-size:24rpx;
+  margin-top:10rpx;
 }
 
 .index-profile__detail {

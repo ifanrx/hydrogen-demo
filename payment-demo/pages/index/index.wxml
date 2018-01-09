@@ -36,10 +36,11 @@
       <swiper-item class="index-profile">
         <image
           class="index-profile__avatar"
-          src="{{ userInfo.isLogin ? userInfo.avatarUrl : img_unLogin }}"
+          src="{{ userInfo.isLogin ? userInfo.avatar_url : img_unLogin }}"
         ></image>
         <view class="index-profile__title h2" wx:if="{{ !userInfo.isLogin }}">
-          未登录
+          <view class="">未登录</view>
+          <view class="index-profile__authorization">如若使用完整未来社功能，请先授权</view>
         </view>
 
         <view class="index-profile__detail" wx:else>
@@ -90,6 +91,7 @@
     <view class="index-dots">
         <view
           class="index-dot"
+          wx:key="index"
           wx:for="{{ pageCount }}"
           >
          <!--  {{ item }} -->

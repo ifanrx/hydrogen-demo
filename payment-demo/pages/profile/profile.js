@@ -16,7 +16,7 @@ Page({
         phone,
         company
       } = res.data.objects[0]
-
+      
       if (res.data.meta.total_count != 0) {
         this.setData({
           name,
@@ -79,6 +79,7 @@ Page({
           name,
           phone,
           company,
+          avatar_url: wx.BaaS.storage.get('userinfo').avatarUrl,
           is_member: false,
           isProfileComplete: true,
           isFirstCommit: false,
