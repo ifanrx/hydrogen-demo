@@ -25,6 +25,6 @@
    ```
 
 2. 示例代码有一个 config 对象，里面记录着应用的 ClientID、数据表的 tableID。ClientID 可以在设置模块找到，而 tableID 需要选择“地址表”数据模板创建一个新的数据表，将该数据表的 tableID 修改到示例代码中。
-![](assets/create-address-table.jpg)
+![](../assets/create-address-table.jpg)
 
 3. Open API 说明文档请查看：[Open API](https://doc.minapp.com/openAPI/)
