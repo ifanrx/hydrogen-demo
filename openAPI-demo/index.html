@@ -163,7 +163,7 @@
           <td>${statusMap[d.status]}</td>
           <td>${formatDate(d.updated_at)}</td>
           <td>${formatDate(d.created_at)}</td>
-          <td><a href="#editModal" data-toggle="modal" onclick="fillForm(${d.id})">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="devareRecord(${d.id})">删除</a></td>
+          <td><a href="#editModal" data-toggle="modal" onclick="fillForm(${d.id})">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="deleteRecord(${d.id})">删除</a></td>
         </tr>`
       }
       return tableHtml
@@ -180,8 +180,8 @@
       })
     }
 
-    var devareRecord = function (recordId) {
-      return client.devare(`table/${config.tableId}/record/${recordId}/`)
+    var deleteRecord = function (recordId) {
+      return client.delete(`table/${config.tableId}/record/${recordId}/`)
     }
 
     var updateRecord = function (recordId, data = {}) {

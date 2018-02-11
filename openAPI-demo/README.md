@@ -4,7 +4,7 @@
 
 ## 如何使用一键部署功能
 
-1. 编写您的运营后台代码，并打包成 .zip 格式压缩包，其中入口文件必须命名为 index.html。
+1. 编写您的运营后台代码，并打包成 .zip 格式压缩包，其中压缩包的一级目录下必须包含命名为 index.html 的入口文件。
 
 2. 进入您需要部署运营后台的应用管理后台页面，依次点击设置-应用信息，点击部署“一键部署后台”，将打包好的 zip 压缩包上传。
 
@@ -24,6 +24,7 @@
    <script src="https://cloud.minapp.com/custom-userdash/auth/<client_id>/"></script>
    ```
 
-2. 示例代码有一个 config 对象，里面记录着应用的 ClientID、数据表的 tableID。ClientID 可以在设置模块找到，而 tableID 需要选择“地址表”模板创建一个新的数据表，将该数据表的 tableID 修改到示例代码中。
+2. 示例代码有一个 config 对象，里面记录着应用的 ClientID、数据表的 tableID。ClientID 可以在设置模块找到，而 tableID 需要选择“地址表”数据模板创建一个新的数据表，将该数据表的 tableID 修改到示例代码中。
+![](assets/create-address-table.jpg)
 
 3. Open API 说明文档请查看：[Open API](https://doc.minapp.com/openAPI/)
