@@ -131,7 +131,8 @@
     }
 
     var client = axios.create({
-      baseURL: 'https://cloud.minapp.com/oserve/v1/',
+      baseURL: 'https://cloud.minapp.com/hserve/v2/',
+      withCredentials: true
     })
 
     var records = []
@@ -163,42 +164,47 @@
           <td>${statusMap[d.status]}</td>
           <td>${formatDate(d.updated_at)}</td>
           <td>${formatDate(d.created_at)}</td>
-          <td><a href="#editModal" data-toggle="modal" onclick="fillForm(${d.id})">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="deleteRecord(${d.id})">删除</a></td>
+          <td><a href="#editModal" data-toggle="modal" onclick="fillForm(${d.id})">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="devareRecord(${d.id})">删除</a></td>
         </tr>`
       }
       return tableHtml
     }
 
-    var getRecords = function (offset = 0, where = '%7B%7D') {
-      return client.get(`table/${config.tableId}/record/`, {
+    var getRecords = function (offset, where) {
+      var _offset = offset || 0
+      var _where = where || '%7B%7D'
+      return client.get(`schema/${config.tableId}/record/`, {
         params: {
           order_by: '-updated_at',
           limit: 50,
-          offset,
-          where
+          offset: _offset,
+          where: _where
         }
       })
     }
 
-    var deleteRecord = function (recordId) {
-      return client.delete(`table/${config.tableId}/record/${recordId}/`)
+    var devareRecord = function (recordId) {
+      return client.devare(`schema/${config.tableId}/record/${recordId}/`)
     }
 
-    var updateRecord = function (recordId, data = {}) {
-      return client.put(`table/${config.tableId}/record/${recordId}/`, {
-        data
+    var updateRecord = function (recordId, data) {
+      var _data = data || {}
+      return client.put(`schema/${config.tableId}/record/${recordId}/`, {
+        data: _data
       })
     }
 
     var addRecord = function (data) {
-      return client.post(`table/${config.tableId}/record/`, {
+      return client.post(`schema/${config.tableId}/record/`, {
         data
       })
     }
 
     var fillForm = function (id) {
       recordId = id
-      var editRecord = records.find(r => r.id == id)
+      var editRecord = records.find(function(r) {
+        return r.id == id
+      })
 
       var eles = document.querySelector('#editForm').elements
       for (var i = 0; i < eles.length; i++) {
@@ -220,7 +226,7 @@
         "phone": {"$eq": phoneNumber},
         "user_id": {"$eq": uid}
       }
-      getRecords(0, encodeURIComponent(JSON.stringify(queryData))).then(res => {
+      getRecords(0, encodeURIComponent(JSON.stringify(queryData))).then(function(res) {
         document.querySelector('#table-body').innerHTML = renderTable(res.data.objects)
       })
     }
@@ -242,7 +248,7 @@
       }
     }
 
-    getRecords().then(res => {
+    getRecords().then(function(res) {
       var data = res.data.objects
       records = data
       var html = renderTable(data)
