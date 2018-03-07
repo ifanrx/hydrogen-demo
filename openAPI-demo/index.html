@@ -53,7 +53,6 @@
             <th>联系人</th>
             <th>联系方式</th>
             <th>状态</th>
-            <th>更新时间</th>
             <th>创建时间</th>
             <th>操作</th>
           </tr>
@@ -151,20 +150,20 @@
       var tableHtml = ''
       for (var i = 0; i < data.length; i++) {
         var d = data[i]
+        let resData = d.response
         tableHtml += `<tr>
-          <td>${d.user_id}</td>
-          <td>${d.country}</td>
-          <td>${d.province}</td>
-          <td>${d.city}</td>
-          <td>${d.district}</td>
-          <td>${d.address}</td>
-          <td>${d.zipcode}</td>
-          <td>${d.contact}</td>
-          <td>${d.phone}</td>
-          <td>${statusMap[d.status]}</td>
-          <td>${formatDate(d.updated_at)}</td>
+          <td>${resData.user_id}</td>
+          <td>${resData.country}</td>
+          <td>${resData.province}</td>
+          <td>${resData.city}</td>
+          <td>${resData.district}</td>
+          <td>${resData.address}</td>
+          <td>${resData.zipcode}</td>
+          <td>${resData.contact}</td>
+          <td>${resData.phone}</td>
+          <td>${statusMap[resData.status]}</td>
           <td>${formatDate(d.created_at)}</td>
-          <td><a href="#editModal" data-toggle="modal" onclick="fillForm(${d.id})">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="devareRecord(${d.id})">删除</a></td>
+          <td><a href="#editModal" data-toggle="modal" onclick="fillForm('${d.id}')">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="deleteRecord('${d.id}')">删除</a></td>
         </tr>`
       }
       return tableHtml
@@ -183,21 +182,25 @@
       })
     }
 
-    var devareRecord = function (recordId) {
-      return client.devare(`schema/${config.tableId}/record/${recordId}/`)
+    var deleteRecord = function (recordId) {
+      client.delete(`schema/${config.tableId}/record/${recordId}/`).then(function(res) {
+        if (res.status === 204) {
+          queryRecord()
+        } else {
+          throw Error(res)
+        }
+      }).catch(function(err) {
+        console.log(err)
+      })
     }
 
     var updateRecord = function (recordId, data) {
       var _data = data || {}
-      return client.put(`schema/${config.tableId}/record/${recordId}/`, {
-        data: _data
-      })
+      return client.put(`schema/${config.tableId}/record/${recordId}/`, _data)
     }
 
     var addRecord = function (data) {
-      return client.post(`schema/${config.tableId}/record/`, {
-        data
-      })
+      return client.post(`schema/${config.tableId}/record/`, data)
     }
 
     var fillForm = function (id) {
@@ -208,7 +211,7 @@
 
       var eles = document.querySelector('#editForm').elements
       for (var i = 0; i < eles.length; i++) {
-        eles[i].value = editRecord[eles[i].name]
+        eles[i].value = editRecord[eles[i].name] || editRecord.response[eles[i].name]
       }
     }
 
@@ -223,10 +226,16 @@
       var uid = document.querySelector('#uid').value
       var phoneNumber = document.querySelector('#phoneNumber').value
       var queryData = {
-        "phone": {"$eq": phoneNumber},
-        "user_id": {"$eq": uid}
+        "$and": [
+          {
+            "phone": {"$eq": phoneNumber},
+          }, {
+            "user_id": {"$eq": uid}
+          }
+        ]
       }
-      getRecords(0, encodeURIComponent(JSON.stringify(queryData))).then(function(res) {
+
+      getRecords(0, JSON.stringify(queryData)).then(function(res) {
         document.querySelector('#table-body').innerHTML = renderTable(res.data.objects)
       })
     }
@@ -242,9 +251,27 @@
       }
 
       if (isEdit) {
-        updateRecord(recordId, data)
+        updateRecord(recordId, data).then(function(res) {
+          if (res.status === 200 ) {
+            queryRecord()
+            $('#editModal').modal('hide')
+          } else {
+            throw Error(res)
+          }
+        }).catch(function(err) {
+          console.log(err)
+        })
       } else {
-        addRecord(data)
+        addRecord(data).then(function(res) {
+          if (res.status === 201 ) {
+            queryRecord()
+            $('#editModal').modal('hide')
+          } else {
+            throw Error(res)
+          }
+        }).catch(function(err) {
+          console.log(err)
+        })
       }
     }
 
