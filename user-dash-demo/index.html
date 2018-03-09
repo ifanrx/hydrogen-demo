@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>示例</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style media="screen">
+      body {
+        padding: 15px;
+      }
+
+      header {
+        margin-bottom: 30px;
+      }
+
+      .query-bar {
+        margin-bottom: 20px;
+      }
+
+      .query-bar label, .query-bar input {
+        margin-right: 8px;
+      }
+    </style>
+    <!-- 其中 client_id 需替换为您应用的 ClientID -->
+    <script src="https://cloud.minapp.com/custom-userdash/auth/:client_id/"></script>
+  </head>
+  <body>
+    <header>
+      <h1>知晓云部署运营后台示例</h1>
+      <h4>数据表操作</h4>
+    </header>
+    <div class="content-body">
+      <form class="form-inline query-bar">
+        <label for="uid">用户 ID</label>
+        <input type="text" class="form-control" id="uid" placeholder="用户 ID">
+
+        <label for="phoneNumber">联系方式</label>
+        <input type="text" class="form-control" id="phoneNumber" placeholder="联系方式">
+
+        <button type="button" class="btn btn-primary" onclick="queryRecord()">查询</button>
+        <button type="button" class="btn btn-primary ml-2" onclick="recordId = '';clearEditForm()" data-toggle="modal" data-target="#editModal">新建</button>
+      </form>
+      <table class="table" style="font-size: 14px;">
+        <thead class="thead-light">
+          <tr>
+            <th>用户 ID</th>
+            <th>国家</th>
+            <th>省份</th>
+            <th>城市</th>
+            <th>行政区</th>
+            <th>地址</th>
+            <th>邮政编码</th>
+            <th>联系人</th>
+            <th>联系方式</th>
+            <th>状态</th>
+            <th>创建时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+      </table>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="editModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">地址信息管理</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id='editForm'>
+              <div class="form-group">
+                <label for="country">用户 ID</label>
+                <input type="text" class="form-control" id="user_id" name="user_id">
+              </div>
+              <div class="form-group">
+                <label for="country">国家</label>
+                <input type="text" class="form-control" id="country" name="country">
+              </div>
+              <div class="form-group">
+                <label for="province">省份</label>
+                <input type="text" class="form-control" id="province" name="province">
+              </div>
+              <div class="form-group">
+                <label for="city">城市</label>
+                <input type="text" class="form-control" id="city" name="city">
+              </div>
+              <div class="form-group">
+                <label for="district">行政区</label>
+                <input type="text" class="form-control" id="district" name="district">
+              </div>
+              <div class="form-group">
+                <label for="address">地址</label>
+                <input type="text" class="form-control" id="address" name="address">
+              </div>
+              <div class="form-group">
+                <label for="address">邮政编码</label>
+                <input type="text" class="form-control" id="zipcode" name="zipcode">
+              </div>
+              <div class="form-group">
+                <label for="contact">联系人</label>
+                <input type="text" class="form-control" id="contact" name="contact">
+              </div>
+              <div class="form-group">
+                <label for="phone">联系方式</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="status">状态</label>
+                <select class="form-control" id="status" name="status">
+                  <option value="0">有效</option>
+                  <option value="1">过期</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="submitModal()">确定</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    // 配置对象
+    var config = {
+      clientId: 'xxx', // 应用 ClientID，可在管理后台设置模块找到
+      tableId: 'xxx', // 数据表 ID
+    }
+
+    var client = axios.create({
+      baseURL: 'https://cloud.minapp.com/userve/v1/',// user dash api 的请求地址
+      withCredentials: true // 必须手动开启为 true，允许跨域请求发送身份凭证信息
+    })
+
+    var records = []
+    var recordId = ''
+
+    var statusMap = {
+      '0': '有效',
+      '1': '过期'
+    }
+
+    var formatDate = function (timestamp) {
+      return new Date(timestamp * 1000).toLocaleDateString().replace(/\//g, '-')
+    }
+
+    // 渲染数据表格
+    var renderTable = function (data) {
+      var tableHtml = ''
+      for (var i = 0; i < data.length; i++) {
+        var d = data[i]
+        tableHtml += `<tr>
+          <td>${d.user_id}</td>
+          <td>${d.country}</td>
+          <td>${d.province}</td>
+          <td>${d.city}</td>
+          <td>${d.district}</td>
+          <td>${d.address}</td>
+          <td>${d.zipcode}</td>
+          <td>${d.contact}</td>
+          <td>${d.phone}</td>
+          <td>${statusMap[d.status]}</td>
+          <td>${formatDate(d.created_at)}</td>
+          <td><a href="#editModal" data-toggle="modal" onclick="fillForm('${d.id}')">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="deleteRecord('${d.id}')">删除</a></td>
+        </tr>`
+      }
+      return tableHtml
+    }
+
+    var getRecords = function (offset, where) {
+      var _offset = offset || 0
+      var _where = where || {}
+      client.get(`table/${config.tableId}/record/`, {
+        params: {
+          order_by: '-updated_at',
+          limit: 50,
+          offset: _offset,
+          where: _where
+        }
+      }).then(function(res) {
+        var data = res.data.objects
+        records = data
+        var html = renderTable(data)
+        document.querySelector('#table-body').innerHTML = html
+      })
+    }
+
+    var deleteRecord = function (recordId) {
+      client.delete(`table/${config.tableId}/record/${recordId}/`).then(function(res) {
+        if (res.status === 204) {
+          getRecords()
+        } else {
+          throw Error(res)
+        }
+      }).catch(function(err) {
+        console.log(err)
+      })
+    }
+
+    var updateRecord = function (recordId, data) {
+      var _data = data || {}
+      return client.put(`table/${config.tableId}/record/${recordId}/`, _data)
+    }
+
+    var addRecord = function (data) {
+      return client.post(`table/${config.tableId}/record/`, data)
+    }
+
+    // 将数据填充到编辑 modal
+    var fillForm = function (id) {
+      recordId = id // 将 id 赋值给 recordId，保存当前编辑数据的 id
+      var editRecord = records.find(function(r) {
+        return r.id == id
+      })
+
+      var eles = document.querySelector('#editForm').elements
+      for (var i = 0; i < eles.length; i++) {
+        eles[i].value = editRecord[eles[i].name]
+      }
+    }
+
+    // 清空编辑 modal
+    var clearEditForm = function () {
+      var eles = document.querySelector('#editForm').elements
+      for (var i = 0; i < eles.length; i++) {
+        eles[i].value = ''
+      }
+    }
+
+    // 查询数据
+    var queryRecord = function () {
+      var uid = document.querySelector('#uid').value
+      var phoneNumber = document.querySelector('#phoneNumber').value
+      var queryData = {} // 构造查询数据时要注意数据类型必须与知晓云后台设置的数据类型一致，如本 demo uid 必须为整型
+      if (uid && !phoneNumber) {
+        queryData = {
+          "user_id": {"$eq": parseInt(uid)}
+        }
+      } else if (!uid && phoneNumber) {
+        queryData = {
+          "phone": {"$eq": phoneNumber}
+        }
+      } else if (uid && phoneNumber) {
+        queryData = {
+          "$and": [
+            {
+              "user_id": {"$eq": parseInt(uid)}
+            }, {
+              "phone": {"$eq": phoneNumber}
+            }
+          ]
+        }
+      }
+
+      getRecords(0, JSON.stringify(queryData))
+    }
+
+    var submitModal = function () {
+      var isEdit = !!recordId // 利用 recordId 判断编辑、新建状态
+      var data = {}
+      var eles = document.querySelector('#editForm').elements
+      for (var i = 0; i < eles.length; i++) {
+        var value = ''
+        if (eles[i].name === 'user_id') {
+          value = parseInt(eles[i].value)
+        } else {
+          value = eles[i].value
+        }
+        Object.assign(data, {
+          [eles[i].name]: value
+        })
+      }
+      // 区分编辑、新建状态调用不同接口。更新数据成功后重新拉取最新的数据列表
+      if (isEdit) {
+        updateRecord(recordId, data).then(function(res) {
+          if (res.status === 200 ) {
+            getRecords()
+            $('#editModal').modal('hide')
+          } else {
+            throw Error(res)
+          }
+        }).catch(function(err) {
+          console.log(err)
+        })
+      } else {
+        addRecord(data).then(function(res) {
+          if (res.status === 201 ) {
+            getRecords()
+            $('#editModal').modal('hide')
+          } else {
+            throw Error(res)
+          }
+        }).catch(function(err) {
+          console.log(err)
+        })
+      }
+    }
+
+    getRecords()
+
+    </script>
+  </body>
+</html>
