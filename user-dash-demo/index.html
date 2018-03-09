@@ -138,12 +138,12 @@
     }
 
     var client = axios.create({
-      baseURL: 'https://cloud.minapp.com/userve/v1/',
-      withCredentials: true
+      baseURL: 'https://cloud.minapp.com/userve/v1/',// user dash api 的请求地址
+      withCredentials: true // 必须手动开启为 true，允许跨域请求发送身份凭证信息
     })
 
     var records = []
-    var editRecordId = ''
+    var recordId = ''
 
     var statusMap = {
       '0': '有效',
@@ -154,6 +154,7 @@
       return new Date(timestamp * 1000).toLocaleDateString().replace(/\//g, '-')
     }
 
+    // 渲染数据表格
     var renderTable = function (data) {
       var tableHtml = ''
       for (var i = 0; i < data.length; i++) {
@@ -215,8 +216,9 @@
       return client.post(`table/${config.tableId}/record/`, data)
     }
 
+    // 将数据填充到编辑 modal
     var fillForm = function (id) {
-      recordId = id
+      recordId = id // 将 id 赋值给 recordId，保存当前编辑数据的 id
       var editRecord = records.find(function(r) {
         return r.id == id
       })
@@ -227,6 +229,7 @@
       }
     }
 
+    // 清空编辑 modal
     var clearEditForm = function () {
       var eles = document.querySelector('#editForm').elements
       for (var i = 0; i < eles.length; i++) {
@@ -234,10 +237,11 @@
       }
     }
 
+    // 查询数据
     var queryRecord = function () {
       var uid = document.querySelector('#uid').value
       var phoneNumber = document.querySelector('#phoneNumber').value
-      var queryData = {}
+      var queryData = {} // 构造查询数据时要注意数据类型必须与知晓云后台设置的数据类型一致，如本 demo uid 必须为整型
       if (uid && !phoneNumber) {
         queryData = {
           "user_id": {"$eq": parseInt(uid)}
@@ -262,7 +266,7 @@
     }
 
     var submitModal = function () {
-      var isEdit = !!recordId
+      var isEdit = !!recordId // 利用 recordId 判断编辑、新建状态
       var data = {}
       var eles = document.querySelector('#editForm').elements
       for (var i = 0; i < eles.length; i++) {
@@ -276,7 +280,7 @@
           [eles[i].name]: value
         })
       }
-
+      // 区分编辑、新建状态调用不同接口。更新数据成功后重新拉取最新的数据列表
       if (isEdit) {
         updateRecord(recordId, data).then(function(res) {
           if (res.status === 200 ) {
