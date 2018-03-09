@@ -34,7 +34,7 @@
 3. 在下载好的后台文件中将 client_id 替换为已授权应用的 ClientID
 
    ```ht
-   <script src="https://cloud.minapp.com/custom-userdash/auth/<client_id>/"></script>
+   <script src="https://cloud.minapp.com/custom-userdash/auth/:client_id/"></script>
    ```
 
 4. 将示例代码中的 clientId、tableId 替换为已授权应用的 ClientID、创建的地址表 id

@@ -22,7 +22,7 @@
       }
     </style>
     <!-- 其中 client_id 需替换为您应用的 ClientID -->
-    <script src="https://cloud.minapp.com/custom-userdash/auth/<client_id>/"></script>
+    <script src="https://cloud.minapp.com/custom-userdash/auth/:client_id/"></script>
   </head>
   <body>
     <header>
@@ -130,7 +130,7 @@
     }
 
     var client = axios.create({
-      baseURL: 'https://cloud.minapp.com/hserve/v2/',
+      baseURL: 'https://cloud.minapp.com/userve/v1/',
       withCredentials: true
     })
 
@@ -150,18 +150,17 @@
       var tableHtml = ''
       for (var i = 0; i < data.length; i++) {
         var d = data[i]
-        let resData = d.response
         tableHtml += `<tr>
-          <td>${resData.user_id}</td>
-          <td>${resData.country}</td>
-          <td>${resData.province}</td>
-          <td>${resData.city}</td>
-          <td>${resData.district}</td>
-          <td>${resData.address}</td>
-          <td>${resData.zipcode}</td>
-          <td>${resData.contact}</td>
-          <td>${resData.phone}</td>
-          <td>${statusMap[resData.status]}</td>
+          <td>${d.user_id}</td>
+          <td>${d.country}</td>
+          <td>${d.province}</td>
+          <td>${d.city}</td>
+          <td>${d.district}</td>
+          <td>${d.address}</td>
+          <td>${d.zipcode}</td>
+          <td>${d.contact}</td>
+          <td>${d.phone}</td>
+          <td>${statusMap[d.status]}</td>
           <td>${formatDate(d.created_at)}</td>
           <td><a href="#editModal" data-toggle="modal" onclick="fillForm('${d.id}')">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="deleteRecord('${d.id}')">删除</a></td>
         </tr>`
@@ -171,21 +170,26 @@
 
     var getRecords = function (offset, where) {
       var _offset = offset || 0
-      var _where = where || '%7B%7D'
-      return client.get(`schema/${config.tableId}/record/`, {
+      var _where = where || {}
+      client.get(`table/${config.tableId}/record/`, {
         params: {
           order_by: '-updated_at',
           limit: 50,
           offset: _offset,
           where: _where
         }
+      }).then(function(res) {
+        var data = res.data.objects
+        records = data
+        var html = renderTable(data)
+        document.querySelector('#table-body').innerHTML = html
       })
     }
 
     var deleteRecord = function (recordId) {
-      client.delete(`schema/${config.tableId}/record/${recordId}/`).then(function(res) {
+      client.delete(`table/${config.tableId}/record/${recordId}/`).then(function(res) {
         if (res.status === 204) {
-          queryRecord()
+          getRecords()
         } else {
           throw Error(res)
         }
@@ -196,11 +200,11 @@
 
     var updateRecord = function (recordId, data) {
       var _data = data || {}
-      return client.put(`schema/${config.tableId}/record/${recordId}/`, _data)
+      return client.put(`table/${config.tableId}/record/${recordId}/`, _data)
     }
 
     var addRecord = function (data) {
-      return client.post(`schema/${config.tableId}/record/`, data)
+      return client.post(`table/${config.tableId}/record/`, data)
     }
 
     var fillForm = function (id) {
@@ -211,7 +215,7 @@
 
       var eles = document.querySelector('#editForm').elements
       for (var i = 0; i < eles.length; i++) {
-        eles[i].value = editRecord[eles[i].name] || editRecord.response[eles[i].name]
+        eles[i].value = editRecord[eles[i].name]
       }
     }
 
@@ -225,19 +229,28 @@
     var queryRecord = function () {
       var uid = document.querySelector('#uid').value
       var phoneNumber = document.querySelector('#phoneNumber').value
-      var queryData = {
-        "$and": [
-          {
-            "phone": {"$eq": phoneNumber},
-          }, {
-            "user_id": {"$eq": uid}
-          }
-        ]
+      var queryData = {}
+      if (uid && !phoneNumber) {
+        queryData = {
+          "user_id": {"$eq": parseInt(uid)}
+        }
+      } else if (!uid && phoneNumber) {
+        queryData = {
+          "phone": {"$eq": phoneNumber}
+        }
+      } else if (uid && phoneNumber) {
+        queryData = {
+          "$and": [
+            {
+              "user_id": {"$eq": parseInt(uid)}
+            }, {
+              "phone": {"$eq": phoneNumber}
+            }
+          ]
+        }
       }
 
-      getRecords(0, JSON.stringify(queryData)).then(function(res) {
-        document.querySelector('#table-body').innerHTML = renderTable(res.data.objects)
-      })
+      getRecords(0, JSON.stringify(queryData))
     }
 
     var submitModal = function () {
@@ -253,7 +266,7 @@
       if (isEdit) {
         updateRecord(recordId, data).then(function(res) {
           if (res.status === 200 ) {
-            queryRecord()
+            getRecords()
             $('#editModal').modal('hide')
           } else {
             throw Error(res)
@@ -264,7 +277,7 @@
       } else {
         addRecord(data).then(function(res) {
           if (res.status === 201 ) {
-            queryRecord()
+            getRecords()
             $('#editModal').modal('hide')
           } else {
             throw Error(res)
@@ -275,12 +288,7 @@
       }
     }
 
-    getRecords().then(function(res) {
-      var data = res.data.objects
-      records = data
-      var html = renderTable(data)
-      document.querySelector('#table-body').innerHTML = html
-    })
+    getRecords()
 
     </script>
   </body>
