@@ -48,4 +48,4 @@
 
 ### 其他
 
-1. User Dash API 说明文档请查看：[User Dash API](待更新)
+1. User Dash API 说明文档请查看：[User Dash API](https://doc.minapp.com/user-dash/)

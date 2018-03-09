@@ -74,6 +74,10 @@
           <div class="modal-body">
             <form id='editForm'>
               <div class="form-group">
+                <label for="country">用户 ID</label>
+                <input type="text" class="form-control" id="user_id" name="user_id">
+              </div>
+              <div class="form-group">
                 <label for="country">国家</label>
                 <input type="text" class="form-control" id="country" name="country">
               </div>
@@ -92,6 +96,10 @@
               <div class="form-group">
                 <label for="address">地址</label>
                 <input type="text" class="form-control" id="address" name="address">
+              </div>
+              <div class="form-group">
+                <label for="address">邮政编码</label>
+                <input type="text" class="form-control" id="zipcode" name="zipcode">
               </div>
               <div class="form-group">
                 <label for="contact">联系人</label>
@@ -258,8 +266,14 @@
       var data = {}
       var eles = document.querySelector('#editForm').elements
       for (var i = 0; i < eles.length; i++) {
+        var value = ''
+        if (eles[i].name === 'user_id') {
+          value = parseInt(eles[i].value)
+        } else {
+          value = eles[i].value
+        }
         Object.assign(data, {
-          [eles[i].name]: eles[i].value
+          [eles[i].name]: value
         })
       }
 
