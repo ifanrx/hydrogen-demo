@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "日期转换器",
+    "navigationBarTextStyle":"black"
+  },
+  "plugins": {
+    "sdkPlugin": {
+      "version": "0.1.0",
+      "provider": "wxc6b86e382a1e3294"
+    }
+  }
+}

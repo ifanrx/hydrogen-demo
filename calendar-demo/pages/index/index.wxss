@@ -1,0 +1,39 @@
+/**index.wxss**/
+.icon {
+  display: block;
+  width: 80px;
+  margin: 10px auto;
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.picker {
+  margin: 20px 0;
+}
+
+.result-box {
+  padding: 10px;
+  border-radius: 5px;
+  background: #efefef;
+}
+
+.result-title {
+  font-size: 14px;
+  color: gray;
+}
+
+.lunar-date {
+  text-align: center;
+}
+
+.submit-btn {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+}
