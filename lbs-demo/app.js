@@ -6,13 +6,13 @@ App({
 
     let that = this
 
-    require('./utils/sdk-v1.1.0')
+    require('./utils/sdk-v1.4.0')
     // 完成BaaS的验证和登录
     wx.BaaS.init(config.BAAS_CLIENT_ID)
     const userId = this.getUserId()
 
     if (!userId) {
-      wx.BaaS.login()
+      wx.BaaS.login(false)
         .then(res => {
           console.log('BaaS is logined...')
         }).catch(err => {
