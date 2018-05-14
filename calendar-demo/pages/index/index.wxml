@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="icon" mode="widthFix" src="../../resource/image/calendar.png"></image>
+
+  <view class="title">日期转换器</view>
+
+  <picker mode="date" value="{{date}}" start="1901-01-01" end="2050-12-31" bindchange="bindDateChange">
+    <view class="picker">
+      <button wx:if="{{!!date}}">当前选择: {{date}}</button>
+      <button wx:else>请选择日期</button>  
+    </view>
+  </picker>
+
+  <button loading="{{loading}}" class="submit-btn" disabled="{{!date}}" type="primary" bindtap="handleSubmit">转换为农历</button>  
+
+  <view class="result-box" wx:if="{{!!lunarDate}}">
+    <view class="result-title">农历：</view>
+    <view class="lunar-date">{{lunarDate}}</view>
+  </view>
+  
+</view>

@@ -123,3 +123,56 @@ isFirstCommit | boolean | false
 Clone 代码后，通过微信开发者工具添加项目；
 
 将您自己的 ClientID, tableID 具体配置到项目目录下的 ``config`` 文件夹下的``config.js``。
+
+## calendar-demo，日期转换器 Demo
+![](assets/calendar-demo.png)
+
+使用知晓云 BaaS SDK 小程序插件实现的日期转换器小程序。  
+通过这个 Demo 你可以学到：
+
+- 使用知晓云云函数调用第三方 SDK 实现复杂逻辑
+
+### 使用这个 Demo
+
+
+*Step 1:*
+
+前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定。并通过控制台获取到 ClientID。
+
+*Step 2:*
+
+参照[文档](https://doc.minapp.com/newbies/)，前往小程序后台，添加“知晓云 SDK ”插件
+
+*Step 3:*
+
+在知晓云[云函数页面](https://cloud.minapp.com/dashboard/#/app/engine/cloud-function/function/123/)创建一个名为“ transToLunarDate ”的云函数，云函数内容为：
+
+```javascript
+exports.main = function functionName(event, callback) {
+  const time = new Date(event.data.date)
+  if (time.toString() === 'Invalid Date' || typeof event.data.date === 'undefined') {
+    callback(new TypeError("无效日期"))
+  }
+  const date = `${time.getFullYear()}-${(time.getMonth() + 1)}-${time.getDate()}`
+  BaaS.request.get('https://www.sojson.com/open/api/lunar/json.shtml?date=' + date)
+  .then(res => {
+    const data = res.data.data
+    const status = res.data.status
+    const message = res.data.message
+    if (status === 200) {
+      const lunarDate = `${data.cyclicalYear}年${data.cnmonth}月${data.cnday}`
+      callback(null, lunarDate)
+    } else {
+      callback(message)
+    }
+  }, err => {
+    callback(err)
+  })
+}
+```
+
+*Step 4:*
+
+Clone 代码后，通过微信开发者工具添加项目；
+
+将您自己的 ClientID 具体配置到项目目录下的 config 文件夹下的 config.js。
