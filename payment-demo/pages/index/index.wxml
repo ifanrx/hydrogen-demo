@@ -1,103 +1,47 @@
 <view class="index">
   <view class="index-main">
     <swiper bindchange='swiper'>
-
       <swiper-item id="index-intro">
-        <image class="index-intro__logo" src="{{ imgLogo }}"></image>
-        <view class="index-intro__title h2">
-          未来社整体介绍
-        </view>
+        <image class="index-intro__logo" src="/resource/image/logo.png"></image>
+        <view class="index-intro__title h2">未来社整体介绍</view>
         <view class="index-intro__detail">
           <text>未来社是融合了科技与人文、创新的空间服务平台。我们通过对空间的设计、改造及更新，创造出真正适合年轻创新群体的线下创意空间，其中包括工作、生活娱乐、商业餐饮、生活美学、教育、活动。</text>
         </view>
-        <view
-          class="index-intro__btn btn btn-danger btn-md"
-          bindtap="buyAction"
-          >
-          购买会员
-        </view>
+        <navigator class="index-intro__btn btn btn-danger btn-md" url="/pages/order/order">购买会员</navigator>
       </swiper-item>
 
       <swiper-item id="index-service">
-        <image class="index-intro__logo" src="{{ imgLogo }}"></image>
+        <image class="index-intro__logo" src="/resource/image/logo.png"></image>
         <view class="index-intro__title h2">
           会员购买说明
         </view>
         <view class="index-intro__detail">
           <text>未来社目前提供会员服务，可享受流动工位的使用权，整体空间提供的网络水电等基础服务，以及未来面向小伙伴所推出的搭配服务。更重要的是与一群志同道合的小伙伴一起打造属于你的社区。</text>
         </view>
-        <view
-          class="index-intro__btn btn btn-danger btn-md"
-          bindtap="buyAction"
-          >
-          购买会员
-        </view>
+        <navigator class="index-intro__btn btn btn-danger btn-md" url="/pages/order/order">购买会员</navigator>
       </swiper-item>
+
       <swiper-item class="index-profile">
-        <image
-          class="index-profile__avatar"
-          src="{{ userInfo.isLogin ? avatarUrl : imgLogout }}"
-        ></image>
-        <view class="index-profile__title h2" wx:if="{{ !userInfo.isLogin }}">
-          <view class="">未登录</view>
-          <view class="index-profile__authorization">如若使用完整未来社功能，请先授权</view>
-        </view>
-
-        <view class="index-profile__detail" wx:else>
-
-          <view class="index-profile__info" wx:if="{{ !userInfo.isProfileComplete }}">
-
-            <text> 资料待完善... </text>
-            <view
-              class="btn btn-md btn-danger"
-              bindtap="goToProfile"
-            >
-              完善资料
-            </view>
+        <open-data type="userAvatarUrl" class="index-profile__avatar"></open-data>
+        <view class="index-profile__detail">
+          <view class="index-profile__info" wx:if="{{ !isProfileComplete }}">
+            <navigator class="btn btn-md btn-danger" url="/pages/profile/profile">完善资料</navigator>
           </view>
-
           <view class="index-profile__info" wx:else>
-            <view>
-              姓名：{{ userInfo.name }}
-            </view>
-            <view>
-              手机：{{ userInfo.phone }}
-            </view>
-            <view>
-              公司：{{ userInfo.company }}
-            </view>
+            <navigator class="btn btn-md btn-danger" hidden="{{ !isProfileComplete }}" url="/pages/profile/profile">修改资料</navigator>
           </view>
-
           <view class="index-profile__space">
-            <view
-              class="btn btn-md btn-danger"
-              bindtap="goToProfile"
-              hidden="{{ !userInfo.isProfileComplete }}"
-            >
-              修改资料
-            </view>
-              <text>众创空间状态</text>
-              <text>
-                {{ !userInfo.is_member ? '您还没有购买会员服务' : '已购买会员，请尽情享受 :-)' }}
-              </text>
+            <text>众创空间状态：</text>
+            <text>{{ !userInfo.is_member ? '您还没购买会员服务' : '已购买会员，请尽情享受 :-)' }}</text>
           </view>
-
         </view>
       </swiper-item>
     </swiper>
-
   </view>
 
-    <view class="index-dots">
-        <view
-          class="index-dot"
-          wx:key="index"
-          wx:for="{{ pageCount }}"
-          >
-          <image
-            class="pager-img"
-            src="{{ pageIndex !=item ? imgDot : imgDotActive }}"
-          ></image>
-        </view>
+  <view class="index-dots">
+    <view class="index-dot" wx:key="index" wx:for="{{ swiperAmount }}">
+      <image class="pager-img" src="{{ currentSwiper != item ? '/resource/image/pager.png' : '/resource/image/pager-active.png' }}"></image>
     </view>
+  </view>
 </view>

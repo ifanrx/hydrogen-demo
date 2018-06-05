@@ -8,12 +8,8 @@ module.exports = {
   ROUTE: {
 
     IMG: {
-      LOGO: '/resource/image/logo.png',
-      UNLOGIN: '/resource/image/defaultavatar.png',
       ORDER_CHECKED: '/resource/image/checkbox_active.png',
       ORDER_UNCHECKED: '/resource/image/checkbox.png',
-      DOT: '/resource/image/pager.png',
-      DOT_ACTIVE: '/resource/image/pager-active.png',
     },
 
     PAGE: {

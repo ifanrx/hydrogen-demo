@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
-	"appid": "wx708a2d6f009564dc",
-	"projectname": "weilaishe",
+	"appid": "wxc6b86e382a1e3294",
+	"projectname": "payment-demo",
 	"condition": {
 		"search": {
 			"current": -1,
