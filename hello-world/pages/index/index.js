@@ -6,14 +6,14 @@ var app = getApp()
 Page({
   data: {
     title: '我的书架',
-    tableID: app.globalData.tableId, 
+    tableID: app.globalData.tableId,
     bookList: [],
     creatingBookName: '', // 当前正在创建的书名
     editingBookName: '', // 当前正在编辑的书名
   },
 
   onLoad(options) {
-    wx.BaaS.login().then(() => {
+    wx.BaaS.login(false).then(() => {
       this.setData({
         profile: wx.BaaS.storage.get('userinfo')
       })
@@ -23,7 +23,7 @@ Page({
 
   // 获取 bookList 数据
   fetchBookList() {
-    utils.getBooks(this, (res) => {
+    utils.getBooks(wx.BaaS.storage.get('uid'), (res) => {
       this.setData({
         bookList: res.data.objects // bookList array, mock data in mock/mock.js
       })
@@ -37,7 +37,6 @@ Page({
     this.setData({
       creatingBookName: value
     })
-  
   },
 
   // 绑定添加书目的提交按钮点击事件，向服务器发送数据
