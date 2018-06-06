@@ -1,15 +1,15 @@
-# lbs-demo，地图黄页 app
+# lbs-demo，地图黄页 demo
 
 <p align="center"><img src="../assets/lbs-demo.png" /></p>
 
-通过这个 Demo 你可以学到：
+通过这个 demo 你可以学到：
 
 - 更加丰富的微信小程序控件使用；
 - LBS 业务中微信小程序地图控件的使用；
 - 知晓云 BaaS JS SDK 多数据表协作实现复杂逻辑；
 
 
-### 使用这个 Demo
+### 使用这个 demo
 
 点击<a href="https://cloud.minapp.com/dashboard/?demo=lbs-demo" target="_blank">创建示例应用</a>，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
