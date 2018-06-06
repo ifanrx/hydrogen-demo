@@ -2,9 +2,9 @@
 
 我们在这里准备了三个使用[知晓云](https://cloud.minapp.com) BaaS JS SDK 开发的微信小程序 Demo, 它们分别是：
 
-- [hello-world](hello-world/README.md)：简易的书架小程序，演示了如何在小程序中进行基本的用户登录，及知晓云数据表操作
-- [lbs-demo](lbs-demo/README.md)：地图黄页 demo，演示了如何在小程序中使用地图功能，及进行知晓云数据表复杂查询
-- [payment-demo](payment-demo/README.md)：微信支付 demo，演示了如何在小程序中获取用户授权和发起微信支付
+- [hello-world](hello-world/)：简易的书架小程序，演示了如何在小程序中进行基本的用户登录，及知晓云数据表操作
+- [lbs-demo](lbs-demo/)：地图黄页 demo，演示了如何在小程序中使用地图功能，及进行知晓云数据表复杂查询
+- [payment-demo](payment-demo/)：微信支付 demo，演示了如何在小程序中获取用户授权和发起微信支付
 
 
 ## hello-world，书架小程序 Demo
