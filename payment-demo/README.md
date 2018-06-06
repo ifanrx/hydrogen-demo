@@ -19,7 +19,7 @@
 
 *Step 3:*
 
-在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/) 中找到 _userprofile 表，为其新增一下几个字段
+在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/) 中找到 _userprofile 表，为其新增以下几个字段
 
 | 字段       | 类型    | 示例 |
 | --------- | ------- | --- |
