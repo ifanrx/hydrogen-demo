@@ -23,6 +23,7 @@
 
       <swiper-item class="index-profile">
         <open-data type="userAvatarUrl" class="index-profile__avatar"></open-data>
+        <open-data type="userNickName"></open-data> 
         <view class="index-profile__detail">
           <view class="index-profile__info" wx:if="{{ !isProfileComplete }}">
             <navigator class="btn btn-md btn-danger" url="/pages/profile/profile">完善资料</navigator>

@@ -26,7 +26,7 @@ Page({
     let MyUser = new wx.BaaS.User()
     MyUser.get(uid).then(res => {
       var userInfo = res.data
-      if (userInfo.nickname && userInfo.phone && userInfo.company) {
+      if (userInfo.name && userInfo.phone && userInfo.company) {
         this.setData({
           userInfo: userInfo,
           isProfileComplete: true,

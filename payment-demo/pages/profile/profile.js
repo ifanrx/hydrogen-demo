@@ -21,7 +21,7 @@ Page({
     let that = this
     this.throttle(() => {
       let newUserInfo = that.data.userInfo
-      newUserInfo.nickname = e.detail.value
+      newUserInfo.name = e.detail.value
       that.setData({
         userInfo: newUserInfo
       })
@@ -52,11 +52,11 @@ Page({
 
   submit(e) {
     wx.showNavigationBarLoading()
-    let { nickname, phone, company } = this.data.userInfo
+    let { name, phone, company } = this.data.userInfo
 
-    if (nickname && phone && company) {
+    if (name && phone && company) {
       let info = {
-        nickname,
+        name,
         phone,
         company,
       }

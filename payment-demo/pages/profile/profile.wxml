@@ -9,7 +9,7 @@
         confirm-type='next'
         auto-height='true'
         bindinput='input_name'
-        value='{{userInfo.nickname}}'></input>
+        value='{{userInfo.name}}'></input>
     </view>
   <view class='form-cell'>
     <text class='form-cell-title'>手机</text>
