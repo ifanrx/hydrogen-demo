@@ -31,8 +31,7 @@
       </view>
     </view>
   </view>
-  <view
-    class="btn btn-danger btn-md order-btn"
-    bindtap="payOrder"
-  >支付</view>
+  <view class="btn btn-danger btn-md order-btn" bindtap="payOrder" wx:if="{{ isAuthoried }}">支付</view>
+  <button class="btn btn-danger btn-md order-authorize-btn" 
+    open-type="getUserInfo" bindgetuserinfo="userInfoHandler" wx:else="{{ isAuthoried }}">请先点击完成授权</button>
 </view>

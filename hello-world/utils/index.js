@@ -1,10 +1,11 @@
 
-let getBooks = (ctx, cb) => {
-
+let getBooks = (uid, cb) => {
   let tableId = getApp().globalData.tableId,
-    Books = new wx.BaaS.TableObject(tableId)
+    Books = new wx.BaaS.TableObject(tableId),
+    query = new wx.BaaS.Query()
 
-  Books.find()
+  query.compare('created_by', '=', uid)
+  Books.setQuery(query).find()
     .then(res => cb(res))
     .catch(err => console.dir(err))
 }

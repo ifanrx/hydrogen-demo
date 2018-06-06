@@ -5,6 +5,7 @@
   border: 1rpx solid #EEE;
   padding: 10rpx 20rpx;
   border-radius: 8rpx;
+  display: inline-block;
 }
 
 .btn-danger {
@@ -18,7 +19,8 @@
 
 .btn-md {
   font-size: 28rpx;
-  padding: 20rpx 40rpx;
+  padding: 18rpx 30rpx;
+  width: auto;
 }
 
 .btn-lg {

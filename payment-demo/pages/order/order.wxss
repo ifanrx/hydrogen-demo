@@ -24,6 +24,14 @@
 }
 
 .order-btn {
+  display:block;
+  width: 90%;
+  margin: 40rpx auto;
+}
+
+.order-authorize-btn {
+  display:block;
+  line-height: 1.5;
   width: 90%;
   margin: 40rpx auto;
 }

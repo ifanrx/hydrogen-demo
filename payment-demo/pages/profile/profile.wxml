@@ -9,7 +9,7 @@
         confirm-type='next'
         auto-height='true'
         bindinput='input_name'
-        value='{{name}}'></input>
+        value='{{userInfo.name}}'></input>
     </view>
   <view class='form-cell'>
     <text class='form-cell-title'>手机</text>
@@ -22,7 +22,7 @@
       type='number'
       bindinput='input_phone'
       maxlength='11'
-      value='{{phone}}'></input>
+      value='{{userInfo.phone}}'></input>
   </view>
   <view class='form-cell'>
     <text class='form-cell-title'>公司</text>
@@ -34,7 +34,7 @@
       data-cell='2'
       auto-height='true'
       bindinput='input_company'
-      value='{{company}}'></textarea>
+      value='{{userInfo.company}}'></textarea>
   </view>
   </view>
   <view class='btn btn-danger btn-md profile-btn' bindtap='submit'>

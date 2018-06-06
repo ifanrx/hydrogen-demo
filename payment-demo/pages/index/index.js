@@ -1,80 +1,48 @@
 //index.js
 import config from '../../config/config'
-import utils from '../../utils/index'
 const app = getApp()
 
 Page({
   data: {
-    imgLogo: config.ROUTE.IMG.LOGO,
-    imgLogout: config.ROUTE.IMG.UNLOGIN,
-    imgDot: config.ROUTE.IMG.DOT,
-    imgDotActive: config.ROUTE.IMG.DOT_ACTIVE,
-    pageCount: 3,
-    pageIndex: 0,
-    isLogin: false,
-    isProfileComplete: false,
+    swiperAmount: 3,
+    currentSwiper: 0,
     userInfo: null,
-    avatarUrl: '',
+    isProfileComplete: false,
   },
 
   onLoad(options) {
-  },
-
-  onShow() {
-    this.initPage()
-  },
-
-  initPage(){
-    /**
-     * 由于 wx.BaaS.login 是异步接口，uid 需要通过在其成功的回调中的本地存储获取
-     */
-    const uid = wx.BaaS.storage.get('uid')
-  
+    var self = this
+    var uid = wx.BaaS.storage.get('uid')
     if (!uid) {
-      wx.BaaS.login()
-      .then(res => {
-        this.getUserInfo()
+      wx.BaaS.login(false).then(res => {
+        self.getUserInfo(res.id)
       })
-      .catch(e => {})
     } else {
-      this.getUserInfo()
+      this.getUserInfo(uid)
     }
   },
 
-  getUserInfo(){
-    let _this = this
-    utils.getUserProfile(this, res => {
-      let userInfo = {}
-      let _userInfo = res.data.objects[0]
-      if (wx.BaaS.storage.get('is_logined_baas')) {
-        userInfo.isLogin = true 
+  getUserInfo: function(uid) {
+    let MyUser = new wx.BaaS.User()
+    MyUser.get(uid).then(res => {
+      var userInfo = res.data
+      if (userInfo.name && userInfo.phone && userInfo.company) {
+        this.setData({
+          userInfo: userInfo,
+          isProfileComplete: true,
+        })
       } else {
-        userInfo.isLogin = false
+        this.setData({
+          userInfo: userInfo,
+        })
       }
-      userInfo = Object.assign(userInfo, _userInfo)
-      this.setData({
-        userInfo,
-        avatarUrl: wx.BaaS.storage.get('userinfo').avatarUrl
-      })
+      wx.setStorageSync('userInfo', userInfo)
     })
   },
 
-  buyAction(e) {
-    wx.navigateTo({
-      url: config.ROUTE.PAGE.ORDER
+  swiper: function(e) {
+    this.setData({
+      currentSwiper: e.detail.current
     })
   },
-
-  goToProfile(e) {
-    wx.navigateTo({
-      url: config.ROUTE.PAGE.PROFILE
-    })
-  },
-
-  swiper(e) {
-    let activePageIndex = e.detail.current
-      this.setData({
-        pageIndex: activePageIndex
-      })
-  }
 })

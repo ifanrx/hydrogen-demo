@@ -1,36 +1,18 @@
 import config from '../../config/config'
-import utils from '../../utils/index'
 
 const app = getApp()
 Page({
   data: {
-    name: '',
-    phone: '',
-    company: '',
-    isFirstCommit: true
+    userInfo: ''
   },
-  onLoad: function () {
-    utils.getUserProfile(this, (res) => {
-      let {
-        name,
-        phone,
-        company
-      } = res.data.objects[0]
-      
-      if (res.data.meta.total_count != 0) {
-        this.setData({
-          name,
-          phone,
-          company,
-          isFirstCommit: false,
-          recordID: res.data.objects[0].id
-        })
 
-      } else {
-        this.setData({
-          name: (wx.BaaS.storage.get('userinfo')).nickname,
-        })
-      }
+  onLoad: function () {
+    let MyUser = new wx.BaaS.User()
+    MyUser.get(wx.BaaS.storage.get('uid')).then(res => {
+      wx.setStorageSync('userInfo', res.data)
+      this.setData({
+        userInfo: res.data,
+      })
     })
   },
 
@@ -38,8 +20,10 @@ Page({
   input_name(e) {
     let that = this
     this.throttle(() => {
+      let newUserInfo = that.data.userInfo
+      newUserInfo.name = e.detail.value
       that.setData({
-        name: e.detail.value
+        userInfo: newUserInfo
       })
     }, this)
   },
@@ -47,8 +31,10 @@ Page({
   input_phone(e) {
     let that = this
     this.throttle(() => {
+      let newUserInfo = that.data.userInfo
+      newUserInfo.phone = e.detail.value
       that.setData({
-        phone: e.detail.value
+        userInfo: newUserInfo
       })
     }, this)
   },
@@ -56,78 +42,42 @@ Page({
   input_company(e) {
     let that = this
     this.throttle(() => {
+      let newUserInfo = that.data.userInfo
+      newUserInfo.company = e.detail.value
       that.setData({
-        company: e.detail.value
+        userInfo: newUserInfo
       })
     }, this)
   },
 
   submit(e) {
     wx.showNavigationBarLoading()
-    let {
-      name,
-      phone,
-      company,
-      isFirstCommit,
-      recordID,
-    } = this.data
+    let { name, phone, company } = this.data.userInfo
 
     if (name && phone && company) {
-
-      if (isFirstCommit) {
-        let data = {
-          name,
-          phone,
-          company,
-          avatar_url: wx.BaaS.storage.get('userinfo').avatarUrl,
-          is_member: false,
-          isProfileComplete: true,
-          isFirstCommit: false,
-        }
-
-        utils.addUser(data, this)
-          .then(res => {
-            wx.hideNavigationBarLoading()
-            wx.navigateTo({
-              url: config.ROUTE.PAGE.INDEX
-            })
-          })
-          .catch(err => {
-            wx.hideNavigationBarLoading()
-            wx.showModal({
-              title: "啊咧！资料保存出错了。",
-              content: "大概是网络不太顺畅，可以稍后再尝试一下。",
-              showCancel: false,
-              confirmText: '好',
-              confirmColor: '#FD544A'
-            })
-          })
-
-      } else {
-        let data = {
-          name,
-          phone,
-          company,
-          recordId: recordID,
-        }
-
-        utils.updateUser(data, this)
-          .then(res => {
-            wx.hideNavigationBarLoading()
-            wx.navigateTo({
-              url: config.ROUTE.PAGE.INDEX
-            })
-          })
-          .catch(err => {
-            wx.showModal({
-              title: "啊咧！资料保存出错了。",
-              content: "大概是网络不太顺畅，可以稍后再尝试一下。",
-              showCancel: false,
-              confirmText: '好',
-              confirmColor: '#FD544A'
-            })
-          })
+      let info = {
+        name,
+        phone,
+        company,
       }
+
+      let MyUser = new wx.BaaS.User()
+      var currentUser = MyUser.getCurrentUserWithoutData()
+      currentUser.set(info).update().then(res => {
+        wx.hideNavigationBarLoading()
+        wx.navigateTo({
+          url: config.ROUTE.PAGE.INDEX
+        })
+      }).catch(err => {
+        wx.hideNavigationBarLoading()
+        wx.showModal({
+          title: "啊咧！资料保存出错了。",
+          content: "大概是网络不太顺畅，可以稍后再尝试一下。",
+          showCancel: false,
+          confirmText: '好',
+          confirmColor: '#FD544A'
+        })
+      })
     } else {
       wx.hideNavigationBarLoading()
       wx.showModal({
@@ -148,5 +98,4 @@ Page({
       }, 300)
     })
   }
-
 })
