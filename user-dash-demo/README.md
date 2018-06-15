@@ -6,8 +6,8 @@
 
 ## 使用说明
 
-1. 登录知晓云控制台，进入设置 - 应用信息，点击一键部署后台
-![](../assets/settings-deploy.jpg)
+1. 登录知晓云控制台，进入 运营 - 运营控制台，点击一键部署后台
+![](../assets/deploy.jpg)
 
 2. 上传打包好 .zip 格式文件，点击确定
 
@@ -25,7 +25,7 @@
 这里提供了一个简单的示例，用于 Demo 演示。使用该文件前你需要做一些准备工作：
 
 1. 在知晓云后台完成授权小程序，获取 ClientID
-![](../assets/clientid.jpg)
+![](../assets/client-id.jpg)
 
 2. 新建一张数据表，点击使用模板，选择【地址表】，创建成功后记录下 tableID
 ![](../assets/create-table.jpg)
