@@ -7,6 +7,14 @@ new Vue({
     return {
       bookList: [],
       creatingBookName: '',
+      loginForm: {
+        email: '',
+        password: '',
+      },
+      registerForm: {
+        email: '',
+        password: '',
+      }
     }
   },
   methods: {
@@ -51,7 +59,28 @@ new Vue({
           })
         })
       })
-    }
+    },
+    openLoginModal() {
+      $('#loginModal').modal()
+    },
+    openRegisterModal() {
+      $('#registerModal').modal()
+    },
+    handleLogin() {
+      BaaS.auth.login(this.loginForm).then(() => {
+        $('#loginModal').modal('hide')
+        this.init()
+      })
+    },
+    handleRegister() {
+      BaaS.auth.register(this.registerForm).then(() => {
+        $('#registerModal').modal('hide')
+        this.init()
+      })
+    },
+    init() {
+      this.getBookList()
+    },
   },
   mounted() {
     if (!localStorage.getItem(cacheKey)) {
@@ -59,6 +88,10 @@ new Vue({
       localStorage.setItem(cacheKey, clientID) // 若输入了错误的 clientID，可以清空 localStorage
     }
     BaaS.init(localStorage.getItem(cacheKey))
-    this.getBookList()
+    BaaS.auth.currentUser().then(() => {
+      this.init()
+    }).catch(e => {
+      this.openLoginModal()
+    })
   }
 })
