@@ -1,6 +1,6 @@
 # web-sdk-demo，书架小程序 Demo
 
-<p align="center"><img src="assets/web-sdk-demo.png" /></p>
+<p align="center"><img src="/assets/web-sdk-demo.png" /></p>
 
 使用知晓云 BaaS JS SDK 实现的书架微信小程序。
 通过这个 Demo 你可以学到：
