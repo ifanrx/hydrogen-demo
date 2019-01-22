@@ -1,7 +1,6 @@
 let BaaS = window.BaaS
 let BookShelf = new BaaS.TableObject('bookshelf')
-let clientID = ''  // 从 BaaS 后台获取 ClientID
-
+let cacheKey = 'ifanrx_clientID'
 new Vue({
   el: '#root',
   data() {
@@ -12,6 +11,7 @@ new Vue({
   },
   methods: {
     createBook() {
+      if (!this.creatingBookName) return false
       let record = BookShelf.create()
       record.set({
         bookName: this.creatingBookName
@@ -54,7 +54,11 @@ new Vue({
     }
   },
   mounted() {
-    BaaS.init(clientID)
+    if (!localStorage.getItem(cacheKey)) {
+      let clientID = window.prompt('请输入 clientID')  // 从 BaaS 后台获取 ClientID
+      localStorage.setItem(cacheKey, clientID) // 若输入了错误的 clientID，可以清空 localStorage
+    }
+    BaaS.init(localStorage.getItem(cacheKey))
     this.getBookList()
   }
 })
