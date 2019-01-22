@@ -1,0 +1,22 @@
+html {
+    font-size: 14px;
+}
+
+.title {
+    text-align: center;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-group-item .form-control {
+    width: unset;
+    flex: 1;
+}
+
+.list-group-item button {
+    margin-left: 20px;
+    flex-shrink: 0;
+}
