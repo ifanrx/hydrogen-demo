@@ -1,8 +1,8 @@
 import config from '../config/config'
 
 let getMerchants = (ctx, cb) => {
-  let tableId = config.TABLE_ID.MERCHANTS,
-      Merchants = new wx.BaaS.TableObject(tableId)
+  let tableName = config.TABLE_NAME.MERCHANTS,
+      Merchants = new wx.BaaS.TableObject(tableName)
   let query1 = new wx.BaaS.Query()
   query1.in('category', [ctx.data.tabs[0].value]) // 分类为科技 IT
   let query2 = new wx.BaaS.Query()
@@ -20,9 +20,9 @@ let getMerchants = (ctx, cb) => {
 }
 
 let getMerchantDetail = (ctx, cb) => {
-  let tableId = config.TABLE_ID.MERCHANTS,
+  let tableName = config.TABLE_NAME.MERCHANTS,
       recordId = ctx.data.merchantID,
-      Merchants = new wx.BaaS.TableObject(tableId)
+      Merchants = new wx.BaaS.TableObject(tableName)
   
   Merchants.get(recordId)
           .then(res => cb(res))
