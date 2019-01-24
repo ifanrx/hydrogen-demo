@@ -16,9 +16,11 @@ Page({
     let self = this
 
     let MyUser = new wx.BaaS.User()
-    MyUser.get(wx.BaaS.storage.get('uid')).then(res => {
-      self.setData({
-        merchandiseRecordID: res.data.id
+    wx.BaaS.auth.currentUser().then(user => {
+      MyUser.get(user.get('id')).then(res => {
+        self.setData({
+          merchandiseRecordID: res.data.id
+        })
       })
     })
 
@@ -30,7 +32,7 @@ Page({
   },
 
   userInfoHandler(data) {
-    wx.BaaS.handleUserInfo(data).then(res => {
+    wx.BaaS.auth.handleUserInfo(data).then(res => {
       this.setData({
         isAuthoried: true,
       })

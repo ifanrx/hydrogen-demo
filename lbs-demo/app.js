@@ -4,32 +4,24 @@ App({
 
   onLaunch: function() {
 
-    let that = this
+    // 引入 BaaS SDK
+    wx.BaaS = requirePlugin('sdkPlugin')
 
-    require('./utils/sdk-v1.4.0')
-    // 完成BaaS的验证和登录
+    wx.BaaS.wxExtend(wx.login,
+      wx.getUserInfo,
+      wx.requestPayment)
+
     wx.BaaS.init(config.BAAS_CLIENT_ID)
-    const userId = this.getUserId()
 
-    if (!userId) {
-      wx.BaaS.login(false)
-        .then(res => {
-          console.log('BaaS is logined...')
-        }).catch(err => {
-          console.log(err)
+    if (!this.userID) {
+      wx.BaaS.auth.currentUser().then(user => {
+        this.userID = user.get('id')
+      }).catch(err => {
+        wx.BaaS.auth.loginWithWechat().then(user => {
+          this.userID = user.get('id')
         })
+      })
     }
-  },
-
-  getUserId() {
-    if (this.userId) {
-      return this.userId
-    }
-
-    const userId = wx.BaaS.storage.get('uid')
-    this.userId = userId
-
-    return userId
   },
 
   navToHome() {

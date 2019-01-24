@@ -1,15 +1,15 @@
 //app.js
 App({
   onLaunch: function() {
-    let that = this
-
     // 引入 BaaS SDK
-    require('./utils/sdk-v1.4.0')
+    wx.BaaS = requirePlugin('sdkPlugin')
 
+    wx.BaaS.wxExtend(wx.login,
+      wx.getUserInfo,
+      wx.requestPayment)
 
-    let clientId = this.globalData.clientId
-
-    wx.BaaS.init(clientId)
+    let clientID = '知晓云管理后台获取到的 ClientID'
+    wx.BaaS.init(clientID)
   },
 
   globalData: {

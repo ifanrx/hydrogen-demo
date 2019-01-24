@@ -12,14 +12,13 @@ Page({
 
   onLoad(options) {
     var self = this
-    var uid = wx.BaaS.storage.get('uid')
-    if (!uid) {
-      wx.BaaS.login(false).then(res => {
-        self.getUserInfo(res.id)
+    wx.BaaS.auth.currentUser().then(user => {
+      self.getUserInfo(user.get('id'))
+    }).catch(err => {
+      wx.BaaS.auth.loginWithWechat().then(user => {
+        self.getUserInfo(user.get('id'))
       })
-    } else {
-      this.getUserInfo(uid)
-    }
+    })
   },
 
   getUserInfo: function(uid) {
