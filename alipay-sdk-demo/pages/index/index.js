@@ -5,49 +5,27 @@ var app = getApp()
 
 Page({
   data: {
-    title: '我的书架',
-    tableID: app.globalData.tableId,
     bookList: [],
     creatingBookName: '', // 当前正在创建的书名
     editingBookName: '', // 当前正在编辑的书名
-    userInfo: {},
     avatar: '',
   },
 
   onLoad(options) {
-    this.alipaySilentLogin()
+    this.fetchBookList()
     my.getAuthCode({
       scopes: 'auth_user',
       success: (res) => {
         my.getAuthUserInfo({
-          success: ({ nickName, avatar }) => {
+          success: ({ avatar }) => {
             this.setData({
               avatar
             })
-          }
+          },
+          fail: err => console.log(err)
         });
       },
     });
-  },
-
-  cleanSession() {
-    console.log('------- clean session start -------')
-    my.BaaS.storage.set('uid', '')
-    my.BaaS.storage.set('auth_token', '')
-    my.BaaS.storage.set('session_expires_at', '')
-    console.log('------- clean session end -------')
-  },
-
-  alipaySilentLogin() {
-    this.cleanSession()
-    my.BaaS.auth.loginWithAlipay().then((res) => {
-      this.setData({
-        userInfo: res.toJSON()
-      })
-      this.fetchBookList()
-    }, err => {
-      console.log(err)
-    })
   },
 
   // 获取 bookList 数据

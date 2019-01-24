@@ -1,7 +1,6 @@
 <view class="index">
   <view class="index-profile">
-    <image src="{{userInfo.avatar}}" class="index-profile__img" a:if="{{!avatar}}" />
-    <image src="{{avatar}}" class="index-profile__img" a:else />
+    <image src="{{avatar}}" class="index-profile__img" />
   </view>
   <view class="index-title">
     {{ title }}
