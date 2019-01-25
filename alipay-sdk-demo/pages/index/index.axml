@@ -3,7 +3,7 @@
     <image src="{{avatar}}" class="index-profile__img" />
   </view>
   <view class="index-title">
-    {{ title }}
+    我的书架
   </view>
   <view class="index-books">
     <view class="index-books__showLayer">
