@@ -88,7 +88,7 @@ new Vue({
       localStorage.setItem(cacheKey, clientID) // 若输入了错误的 clientID，可以清空 localStorage
     }
     BaaS.init(localStorage.getItem(cacheKey))
-    BaaS.auth.currentUser().then(() => {
+    BaaS.auth.getCurrentUser().then(() => {
       this.init()
     }).catch(e => {
       this.openLoginModal()
