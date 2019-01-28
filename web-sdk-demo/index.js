@@ -84,8 +84,13 @@ new Vue({
   },
   mounted() {
     if (!localStorage.getItem(cacheKey)) {
-      let clientID = window.prompt('请输入 clientID')  // 从 BaaS 后台获取 ClientID
-      localStorage.setItem(cacheKey, clientID) // 若输入了错误的 clientID，可以清空 localStorage
+      while (true) {
+        let clientID = window.prompt('请输入 clientID')  // 从 BaaS 后台获取 ClientID
+        if (clientID && clientID.match(/\w{20}/)) {
+          localStorage.setItem(cacheKey, clientID) // 若输入了错误的 clientID，可以清空 localStorage
+          break
+        }
+      }
     }
     BaaS.init(localStorage.getItem(cacheKey))
     BaaS.auth.getCurrentUser().then(() => {
