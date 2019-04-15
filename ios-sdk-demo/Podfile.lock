@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.8.2)
+  - MinCloud (0.1.0):
+    - Moya (<= 12.0.1)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Result (4.1.0)
+
+DEPENDENCIES:
+  - MinCloud
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - MinCloud
+    - Moya
+    - Result
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  MinCloud: 2c5b43ab9b56de93f4cbfad0d79075b901311643
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+
+PODFILE CHECKSUM: 22ed856e1ceedf9223803586f30761e785ae37fb
+
+COCOAPODS: 1.6.1
