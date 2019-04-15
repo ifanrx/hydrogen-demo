@@ -22,7 +22,25 @@
 
 *Step 2:*
 
-Clone 代码后，将您自己的 ClientID, tableName 替换代码中的演示 ClienID 和 tableName，即可运行代码。
+Clone 代码后，在 `Podfile` 文件中添加以下代码
+
+```
+platform :ios, '9.0'
+use_frameworks!
+
+target 'YOUR_APP_TARGET' do # 替换 YOUR_APP_TARGET 为你的应用名称。
+    pod 'MinCloud'
+end
+```
+
+安装 SDK:
+
+```
+pod install
+```
+*Step 2.1:*
+
+将您自己的 ClientID, tableName 替换代码中的演示 ClienID 和 tableName，即可运行代码。
 
 ClientID 位于 AppDelegate.swift 文件的 `application:launchOptions:` 方法中。
 
