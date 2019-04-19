@@ -12,13 +12,14 @@
 
 点击<a href="https://cloud.minapp.com/dashboard/?demo=bookshelf-demo" target="_blank">创建示例应用</a>，我们会帮您在知晓云完成应用、数据表、内容库的创建及示例数据的填充。（创建前请先完成登录）
 
+你也可以手动这么做：
+
 *Step 1:*
 
-你也可以手动这么做：
 前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定。并通过控制台获取到 ClientID。
 
 *Step 1.1:*
-在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，添加一个类型为 String 的数据列：name。完成创建之后，在数据表界面的右侧帮助中心获取数据表的名字: tableName。
+在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，添加一个类型为 String 的数据列：bookName。完成创建之后，在数据表界面的右侧帮助中心获取数据表的名字: tableName。
 
 *Step 2:*
 
