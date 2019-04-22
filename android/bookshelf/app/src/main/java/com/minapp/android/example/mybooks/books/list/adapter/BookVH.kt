@@ -47,6 +47,9 @@ class BookVH (
         }
     }
 
+    /**
+     * 每个书籍条目的样式，这里只是简单地展示书名
+     */
     fun bind(book: Book?, position: Int) {
         data = book
         itemView.findViewById<TextView>(R.id.nameTv).text = "${position + 1}. ${data?.name}"

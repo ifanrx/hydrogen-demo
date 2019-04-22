@@ -8,10 +8,18 @@ import com.minapp.android.sdk.util.PagedList
 
 abstract class BasePageKeyedDataSource<T>: PageKeyedDataSource<Int, T>() {
 
+    /**
+     * 这里展示了如何使用 [Query]
+     */
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, T>) {
         try {
             val offset = 0
             val limit = params.requestedLoadSize
+
+            /**
+             * 添加分页参数 [Query.OFFSET] 和 [Query.LIMIT]
+             * 也可以通过 [Query.offset] 和 [Query.limit] 设置
+             */
             val query = Query().apply {
                 put(Query.OFFSET, offset.toString())
                 put(Query.LIMIT, limit.toString())
@@ -30,6 +38,9 @@ abstract class BasePageKeyedDataSource<T>: PageKeyedDataSource<Int, T>() {
         }
     }
 
+    /**
+     * @see [loadInitial]
+     */
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, T>) {
         try {
             val offset = params.key

@@ -20,6 +20,9 @@ import kotlinx.android.synthetic.main.activity_sign_in_up.*
  */
 class SignInUpActivity : BaseActivity() {
 
+    /**
+     * 标识，登录 or 注册
+     */
     private var mode = SIGN_IN
     private var viewModel: SignInUpViewModel? = null
 
@@ -67,6 +70,9 @@ class SignInUpActivity : BaseActivity() {
         return true
     }
 
+    /**
+     * 登录 or 注册就是切换标识，以及刷新 ui
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.switchToSignIn -> {

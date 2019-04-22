@@ -16,6 +16,9 @@ import com.minapp.android.example.mybooks.launch.LaunchActivity
 import com.minapp.android.sdk.auth.Auth
 import kotlinx.android.synthetic.main.activity_book_list.*
 
+/**
+ * 我的书籍列表，这里展示所有我的书籍
+ */
 class BookListActivity : BaseActivity() {
 
     private var viewModel: BookListViewModel? = null
@@ -34,7 +37,16 @@ class BookListActivity : BaseActivity() {
             setAdapter(adapter)
         }
         vm.apply {
+
+            /**
+             * 这里使用 paging 和 [RecyclerView] 展示书籍列表
+             * paging 的使用参考 https://developer.android.com/topic/libraries/architecture/paging/
+             */
             list.observe(this@BookListActivity, Observer { adapter.submitList(it) })
+
+            /**
+             * 点击编辑按钮，打开编辑页面
+             */
             editBook.observe(this@BookListActivity, Observer {
                 if (it != null) {
                     EditBookActivity.editBook(this@BookListActivity, EDIT_BOOK, it)

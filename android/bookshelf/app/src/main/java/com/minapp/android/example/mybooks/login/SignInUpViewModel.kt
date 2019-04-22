@@ -29,6 +29,10 @@ class SignInUpViewModel: BaseViewModel() {
         ioScope.launch {
             loading.postValue(true)
             try {
+
+                /**
+                 * 这里使用 Auth 模块的邮箱登录 [Auth.signInByEmail] 和邮箱注册 [Auth.signUpByEmail] 接口完成登录和注册
+                 */
                 if (signIn)
                     Auth.signInByEmail(email, pwd)
                 else

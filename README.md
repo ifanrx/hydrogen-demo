@@ -72,7 +72,7 @@
 
 [点击这里，查看该 demo 的详细使用文档](alipay-sdk-demo/README.md)
 
-## android-bookshelf，android demo 我的书架
+## android sdk demo，android-bookshelf 我的书架
 
 <p align="center"><img src="assets/android_bookshelf.png" /></p>
 

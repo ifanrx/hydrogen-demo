@@ -19,7 +19,7 @@
 前往[知晓云](https://cloud.minapp.com) 创建账户，进入控制台完成小程序绑定。并通过控制台获取到 ClientID。
 
 *Step 1.1:*
-在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，添加一个类型为 String 的数据列：bookName。完成创建之后，记住你新创建的数据表的表名：TableName。
+在控制台[数据管理](https://cloud.minapp.com/dashboard/#/app/schema/)创建一个新的数据表，添加一个类型为 String 的数据列：bookName。完成创建之后，记住你新创建的数据表的表名：TableName。
 
 *Step 2:*
 

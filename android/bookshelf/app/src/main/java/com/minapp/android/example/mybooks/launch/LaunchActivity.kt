@@ -12,7 +12,7 @@ import com.minapp.android.example.mybooks.login.SignInUpActivity
 import kotlinx.android.synthetic.main.activity_launch.*
 
 /**
- *
+ * 开屏页
  */
 class LaunchActivity : BaseActivity() {
 
@@ -45,6 +45,11 @@ class LaunchActivity : BaseActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
+
+            /**
+             * 没有登录，进入登录/注册页
+             * 在登录 or 注册成功后，跳到书架列表页面
+             */
             SIGN_UP -> {
                 if (resultCode == Activity.RESULT_OK)
                     toMainPage()

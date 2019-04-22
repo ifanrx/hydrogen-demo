@@ -10,8 +10,15 @@ import com.minapp.android.example.mybooks.R
 import com.minapp.android.example.mybooks.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_book.*
 
+/**
+ * 新增/编辑页面
+ */
 class EditBookActivity : BaseActivity() {
 
+    /**
+     * id != null，则编辑
+     * id == null，则新增
+     */
     private var id: String? = null
     private var viewModel: EditBookViewModel? = null
 
@@ -29,7 +36,12 @@ class EditBookActivity : BaseActivity() {
     private fun init() {
         supportActionBar?.title = if (id == null) "放一本新书" else "给书改个名"
         viewModel = provideViewModel(EditBookViewModel::class.java).apply {
+
+            /**
+             * 编辑时，传递 id 过来，获取到书名后展示
+             */
             bookName.observe(this@EditBookActivity, Observer { nameEt.setText(it) })
+
             init(id)
         }
         nameEt.setOnEditorActionListener { v, actionId, event ->

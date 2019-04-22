@@ -5,6 +5,8 @@ import androidx.paging.LivePagedListBuilder
 import com.minapp.android.example.mybooks.Const
 import com.minapp.android.example.mybooks.base.BaseViewModel
 import com.minapp.android.example.mybooks.books.model.Books
+import com.minapp.android.sdk.database.Record
+import com.minapp.android.sdk.database.Table
 import kotlinx.coroutines.launch
 
 class BookListViewModel: BaseViewModel() {
@@ -13,6 +15,9 @@ class BookListViewModel: BaseViewModel() {
     val editBook = MutableLiveData<String>()
     private val books = Books()
 
+    /**
+     * 刷新操作
+     */
     fun refresh() {
         list.value?.dataSource?.invalidate()
     }
@@ -21,6 +26,11 @@ class BookListViewModel: BaseViewModel() {
         editBook.value = id
     }
 
+    /**
+     * 删除操作
+     * 通过 [Table.fetchWithoutData] 拿到只包含 [Record.getId] 的实体
+     * 然后通过 [Record.delete] 删除它，这是一种面向 ORM 的 api
+     */
     fun delete(id: String) {
         ioScope.launch {
             try {
