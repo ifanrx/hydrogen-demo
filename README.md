@@ -7,6 +7,7 @@
 - [payment-demo](payment-demo/)：微信支付 demo，演示了如何在微信小程序中获取用户授权和发起微信支付
 - [web-sdk-demo](web-sdk-demo/)：简易的书架 H5 网页，演示了如何在网页中进行基本的进行基本的用户登录注册、及知晓云数据表操作
 - [alipay-sdk-demo](alipay-sdk-demo/)：简易的书架小程序，演示了如何在支付宝小程序中进行基本的用户登录，及知晓云数据表操作
+- [ios-sdk-demo](ios-sdk-demo/)：简易的书架 demo，演示了如何在 app 中进行基本的用户登录，及知晓云数据表操作
 
 
 ## hello-world，书架小程序 Demo
@@ -72,6 +73,20 @@
 
 [点击这里，查看该 demo 的详细使用文档](alipay-sdk-demo/README.md)
 
+
+## ios-sdk-demo，书架app Demo
+
+<p align="center"><img src="assets/ios-sdk-demo.png" width = "250" /></p>
+
+使用知晓云 BaaS iOS SDK 实现的书架微信 demo。
+通过这个 Demo 你可以学到：
+
+- 使用 SDK 对后端数据进行基础的增删改查操作；
+- 使用 SDK 进行用户注册、登录、登出及获取用户信息；
+
+[点击这里，查看该 demo 的详细使用文档](ios-sdk-demo/README.md)
+
+
 ## android sdk demo，android-bookshelf 我的书架
 
 <p align="center"><img src="assets/android_bookshelf.png" /></p>
@@ -83,3 +98,4 @@
 - 使用 SDK 进行用户登录及获取用户信息；
 
 [点击这里，查看该 demo 的详细使用文档](android/bookshelf/README.md)
+
