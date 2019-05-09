@@ -2,14 +2,19 @@
 App({
   onLaunch: function() {
     // 引入 BaaS SDK
+    // require('./utils/sdk-wechat.2.0.8-a')
     wx.BaaS = requirePlugin('sdkPlugin')
+
+    //让插件帮助完成登录、支付等功能
+    wx.BaaS.wxExtend(wx.login,
+     wx.getUserInfo,
+     wx.requestPayment)
 
     wx.BaaS.wxExtend(wx.login,
       wx.getUserInfo,
       wx.requestPayment)
 
-    let clientID = '知晓云管理后台获取到的 ClientID'
-    wx.BaaS.init(clientID)
+    wx.BaaS.init(clientId, {autoLogin: true})
   },
 
   globalData: {
