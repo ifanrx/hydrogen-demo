@@ -11,7 +11,7 @@ App({
       wx.getUserInfo,
       wx.requestPayment)
 
-    wx.BaaS.init(config.BAAS_CLIENT_ID)
+    wx.BaaS.init(config.BAAS_CLIENT_ID, {autoLogin: true})
 
     if (!this.userID) {
       wx.BaaS.auth.getCurrentUser().then(user => {

@@ -11,6 +11,6 @@ App({
       wx.requestPayment)
 
     let clientID = '知晓云管理后台获取到的 ClientID'
-    wx.BaaS.init(clientID)
+    wx.BaaS.init(clientID, {autoLogin: true})
   },
 })
