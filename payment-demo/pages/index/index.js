@@ -12,7 +12,7 @@ Page({
 
   onLoad(options) {
     var self = this
-    wx.BaaS.auth.currentUser().then(user => {
+    wx.BaaS.auth.getCurrentUser().then(user => {
       self.getUserInfo(user.get('id'))
     }).catch(err => {
       wx.BaaS.auth.loginWithWechat().then(user => {

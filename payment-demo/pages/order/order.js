@@ -16,7 +16,7 @@ Page({
     let self = this
 
     let MyUser = new wx.BaaS.User()
-    wx.BaaS.auth.currentUser().then(user => {
+    wx.BaaS.auth.getCurrentUser().then(user => {
       MyUser.get(user.get('id')).then(res => {
         self.setData({
           merchandiseRecordID: res.data.id
@@ -32,7 +32,7 @@ Page({
   },
 
   userInfoHandler(data) {
-    wx.BaaS.auth.handleUserInfo(data).then(res => {
+    wx.BaaS.auth.loginWithWechat(data).then(res => {
       this.setData({
         isAuthoried: true,
       })

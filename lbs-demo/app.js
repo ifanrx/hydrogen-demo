@@ -14,7 +14,7 @@ App({
     wx.BaaS.init(config.BAAS_CLIENT_ID)
 
     if (!this.userID) {
-      wx.BaaS.auth.currentUser().then(user => {
+      wx.BaaS.auth.getCurrentUser().then(user => {
         this.userID = user.get('id')
       }).catch(err => {
         wx.BaaS.auth.loginWithWechat().then(user => {

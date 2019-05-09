@@ -10,10 +10,7 @@ App({
      wx.getUserInfo,
      wx.requestPayment)
 
-    wx.BaaS.wxExtend(wx.login,
-      wx.getUserInfo,
-      wx.requestPayment)
-
+    let clientId = this.globalData.clientId
     wx.BaaS.init(clientId, {autoLogin: true})
   },
 
