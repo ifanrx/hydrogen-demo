@@ -3,9 +3,14 @@ import config from './config/config'
 App({
 
   onLaunch() {
-    require('./vendor/sdk-v1.4.0')
+    // 引入 BaaS SDK
+    wx.BaaS = requirePlugin('sdkPlugin')
 
-      const clientID = config.BAAS.CLIENT_ID
-      wx.BaaS.init(clientID)
+    wx.BaaS.wxExtend(wx.login,
+      wx.getUserInfo,
+      wx.requestPayment)
+
+    let clientID = '知晓云管理后台获取到的 ClientID'
+    wx.BaaS.init(clientID, {autoLogin: true})
   },
 })

@@ -24,7 +24,7 @@ Page({
 
     // 获取company并设置到markers
     let intervalId = setInterval(() => {
-      let uid = app.getUserId()
+      let uid = this.userID
       if (uid) {
         this.getCategory()
         clearInterval(intervalId)

@@ -13,9 +13,9 @@ Page({
   },
 
   onLoad(options) {
-    wx.BaaS.login(false).then(() => {
+    wx.BaaS.auth.loginWithWechat().then(user => {
       this.setData({
-        profile: wx.BaaS.storage.get('userinfo')
+        profile: user.toJSON()
       })
       this.fetchBookList()
     })
@@ -23,7 +23,7 @@ Page({
 
   // 获取 bookList 数据
   fetchBookList() {
-    utils.getBooks(wx.BaaS.storage.get('uid'), (res) => {
+    utils.getBooks(this.data.profile.id, (res) => {
       this.setData({
         bookList: res.data.objects // bookList array, mock data in mock/mock.js
       })
