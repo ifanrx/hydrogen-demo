@@ -41,6 +41,7 @@ pod install
 *Step 1.1*
 在控制台[数据管理](https://cloud.minapp.com/hydrogen/flex/schema/)创建一个新的数据表，命名为 bookshelf。
 在数据表中，添加以下属性：
+
 | 名称 | 类型 | 说明 |
 | :---- | :----- | :---- |
 | name| string | 书名 |
