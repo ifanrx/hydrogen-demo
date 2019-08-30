@@ -8,6 +8,7 @@
 - [web-sdk-demo](web-sdk-demo/)：简易的书架 H5 网页，演示了如何在网页中进行基本的进行基本的用户登录注册、及知晓云数据表操作
 - [alipay-sdk-demo](alipay-sdk-demo/)：简易的书架小程序，演示了如何在支付宝小程序中进行基本的用户登录，及知晓云数据表操作
 - [ios-sdk-demo](ios-sdk-demo/)：简易的书架 demo，演示了如何在 app 中进行基本的用户登录，及知晓云数据表操作
+- [swiftui-demo](swiftui-demo/)：使用 SwiftUI 创建的简易的书架列表 demo，演示了知晓云数据表简单操作
 
 
 ## hello-world，书架小程序 Demo
