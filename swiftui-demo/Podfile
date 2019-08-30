@@ -6,5 +6,5 @@ target 'swiftui-demo' do
   use_frameworks!
 
   # Pods for swiftui-demo
-  pod 'MinCloud', :git => 'https://github.com/ifanrx/hydrogen-ios-sdk.git', :branch => 'fix_bug'
+  pod 'MinCloud', :git => 'https://github.com/ifanrx/hydrogen-ios-sdk.git'
 end
