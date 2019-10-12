@@ -74,6 +74,19 @@
 
 [点击这里，查看该 demo 的详细使用文档](alipay-sdk-demo/README.md)
 
+## qq-sdk-demo，书架小程序 Demo
+
+<p align="center"><img src="assets/qq-sdk-demo.png" /></p>
+
+使用知晓云 BaaS JS SDK 实现的书架 QQ 小程序。
+通过这个 Demo 你可以学到：
+
+- 基本的 QQ 小程序开发，控件交互等；
+- 使用 SDK 对后端数据进行基础的增删改查操作；
+- 使用 SDK 进行用户登录及获取用户信息；
+
+[点击这里，查看该 demo 的详细使用文档](qq-sdk-demo/README.md)
+
 
 ## ios-sdk-demo，书架app Demo
 
