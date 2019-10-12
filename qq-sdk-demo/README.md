@@ -1,4 +1,4 @@
-## alipay-sdk-demo，书架小程序 Demo
+## qq-sdk-demo，书架小程序 Demo
 
 <p align="center"><img src="../assets/qq-sdk-demo.png" /></p>
 

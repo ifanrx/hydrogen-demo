@@ -1,12 +1,13 @@
 # 知晓云小程序 Demo
 
-我们在这里准备了五个使用[知晓云](https://cloud.minapp.com) BaaS JS SDK 开发的小程序 Demo, 它们分别是：
+我们在这里准备了六个使用[知晓云](https://cloud.minapp.com) BaaS JS SDK 开发的小程序 Demo, 它们分别是：
 
 - [hello-world](hello-world/)：简易的书架小程序，演示了如何在微信小程序中进行基本的用户登录，及知晓云数据表操作
 - [lbs-demo](lbs-demo/)：地图黄页 demo，演示了如何在微信小程序中使用地图功能，及进行知晓云数据表复杂查询
 - [payment-demo](payment-demo/)：微信支付 demo，演示了如何在微信小程序中获取用户授权和发起微信支付
 - [web-sdk-demo](web-sdk-demo/)：简易的书架 H5 网页，演示了如何在网页中进行基本的进行基本的用户登录注册、及知晓云数据表操作
 - [alipay-sdk-demo](alipay-sdk-demo/)：简易的书架小程序，演示了如何在支付宝小程序中进行基本的用户登录，及知晓云数据表操作
+- [qq-sdk-demo](qq-sdk-demo/)：简易的书架小程序，演示了如何在 QQ 小程序中进行基本的用户登录，及知晓云数据表操作
 - [ios-sdk-demo](ios-sdk-demo/)：简易的书架 demo，演示了如何在 app 中进行基本的用户登录，及知晓云数据表操作
 - [swiftui-demo](swiftui-demo/)：使用 SwiftUI 创建的简易的书架列表 demo，演示了知晓云数据表简单操作
 
