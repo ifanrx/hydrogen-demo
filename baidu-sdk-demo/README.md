@@ -1,11 +1,11 @@
-## qq-sdk-demo，书架小程序 Demo
+## alipay-sdk-demo，书架小程序 Demo
 
-<p align="center"><img src="../assets/qq-sdk-demo.png" /></p>
+<p align="center"><img src="../assets/baidu-sdk-demo.png" /></p>
 
-使用知晓云 BaaS JS SDK 实现的书架 QQ 小程序。
+使用知晓云 BaaS JS SDK 实现的书架百度小程序。
 通过这个 Demo 你可以学到：
 
-- 基本的 QQ 小程序开发，控件交互等；
+- 基本的百度小程序开发，控件交互等；
 - 使用 SDK 对后端数据进行基础的增删改查操作；
 - 使用 SDK 进行用户登录及获取用户信息；
 
@@ -22,4 +22,4 @@
 
 *Step 2:*
 
-Clone 代码后，通过 QQ 开发者工具添加项目。将您自己的 ClientID, tableName 替换代码中（app.js, index.js）的演示 ID，即可运行代码。
+Clone 代码后，通过百度开发者工具添加项目。将您自己的 ClientID, tableName 替换代码中（app.js, index.js）的演示 ID，即可运行代码。
