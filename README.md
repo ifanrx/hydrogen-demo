@@ -8,6 +8,7 @@
 - [web-sdk-demo](web-sdk-demo/)：简易的书架 H5 网页，演示了如何在网页中进行基本的进行基本的用户登录注册、及知晓云数据表操作
 - [alipay-sdk-demo](alipay-sdk-demo/)：简易的书架小程序，演示了如何在支付宝小程序中进行基本的用户登录，及知晓云数据表操作
 - [qq-sdk-demo](qq-sdk-demo/)：简易的书架小程序，演示了如何在 QQ 小程序中进行基本的用户登录，及知晓云数据表操作
+- [baidu-sdk-demo](baidu-sdk-demo/)：简易的书架小程序，演示了如何在百度小程序中进行基本的用户登录，及知晓云数据表操作
 - [ios-sdk-demo](ios-sdk-demo/)：简易的书架 demo，演示了如何在 app 中进行基本的用户登录，及知晓云数据表操作
 - [swiftui-demo](swiftui-demo/)：使用 SwiftUI 创建的简易的书架列表 demo，演示了知晓云数据表简单操作
 
@@ -87,6 +88,19 @@
 - 使用 SDK 进行用户登录及获取用户信息；
 
 [点击这里，查看该 demo 的详细使用文档](qq-sdk-demo/README.md)
+
+## baidu-sdk-demo，书架小程序 Demo
+
+<p align="center"><img src="assets/baidu-sdk-demo.png" /></p>
+
+使用知晓云 BaaS JS SDK 实现的书架百度小程序。
+通过这个 Demo 你可以学到：
+
+- 基本的百度小程序开发，控件交互等；
+- 使用 SDK 对后端数据进行基础的增删改查操作；
+- 使用 SDK 进行用户登录及获取用户信息；
+
+[点击这里，查看该 demo 的详细使用文档](baidu-sdk-demo/README.md)
 
 
 ## ios-sdk-demo，书架app Demo

@@ -1,4 +1,4 @@
-## alipay-sdk-demo，书架小程序 Demo
+## baidu-sdk-demo，书架小程序 Demo
 
 <p align="center"><img src="../assets/baidu-sdk-demo.png" /></p>
 
