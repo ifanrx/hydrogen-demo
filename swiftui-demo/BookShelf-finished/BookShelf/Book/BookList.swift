@@ -13,10 +13,8 @@ struct BookList: View {
     
     var body: some View {
         List(store.books) { book in
-            VStack(alignment: .leading) {
-                NavigationLink(destination: BookDetailView(book: book)) {
-                    BookItemRow(book: book)
-                }
+            NavigationLink(destination: BookDetailView(book: book)) {
+                BookItemRow(book: book)
             }
         }
         .onAppear(perform: { self.store.fetch() })

@@ -30,7 +30,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'YOUR_APP_TARGET' do # 替换 YOUR_APP_TARGET 为你的应用名称。
-    pod 'MinCloud'
+    pod 'MinCloud', :git => 'https://github.com/ifanrx/hydrogen-ios-sdk.git'
 end
 ```
 
