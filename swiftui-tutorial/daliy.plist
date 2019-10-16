@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>0</string>
+		<key>title</key>
+		<string>「瀑布屏」手机到底好不好用？</string>
+		<key>date</key>
+		<string>2019-10-13</string>
+		<key>content</key>
+		<string>最近这几年，各大品牌都在围着手机屏幕打转，推陈出新的势头愈演愈烈。而在刘海屏、水滴屏和挖孔屏种种之后，我们又迎来了一个新名词，瀑布屏。\n和当初 vivo 与 OPPO 尝试用升降结构隐藏前置摄像头的目标一致，瀑布屏也是为了实现「保留手机屏幕的完整性」目标。毕竟，就算前置摄像头被塞进了机身内部，我们的手机正面难免还会有一圈黑色边框，以及边缘凸起的按键。\n「点亮屏幕，看到的就只有一块屏幕」，类似说法我们已经听过太多遍，但 vivo NEX 3 正在无限接近这个目标，而「瀑布屏」便是 vivo 在百尺竿头后的更进一步。\n这一步看似微不足道，但几乎每一位上手过这款手机的人，都会为这块屏幕所惊艳。</string>
+		<key>thumbnail</key>
+		<string>https://s3.ifanr.com/wp-content/uploads/2019/10/DSC4225.jpg!720</string>
+		<key>author</key>
+		<string>爱范儿</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>title</key>
+		<string>60 天打印一枚火箭，这项技术可能将改变航天业</string>
+		<key>date</key>
+		<string>2019-10-14</string>
+		<key>thumbnail</key>
+		<string>https://s3.ifanr.com/wp-content/uploads/2019/10/Launch_OffPad.4k.0.jpg!720</string>
+		<key>content</key>
+		<string>今年 4 月，SpaceX 重型猎鹰完成首次商业发射，并首次成功回收三枚助推器，这对于 SpaceX 和整个航天史来说都是一个里程碑，这意味着火箭发射的成本有望大大降低。 马斯克曾表示一旦火箭回收常态化，能降低 99 ％的发射成本。尽管这个数字还存在争议，但不少业内专家也都承认这是目前火箭发射性价比最高的方案。 那除此之外还有没有别的降低发射成本的方法？3D 打印是其中一个答案。 Relativity Space 就是一家计划用 3D 打印技术来制造火箭的公司，这家公司的首席执行官是 29 岁的 Tim Ellis，他曾在亚马逊 CEO Jeff Bezos 旗下的太空公司 (Blue Origin) 中从事推进器和 3D 打印研发，而另一位创始人 Jordan Noone 则先后在蓝色起源和 SpaceX 工作。 在接受 《连线》杂志采访时，Tim Ellis 表示希望通过将 3D 打印技术和人工智能结合，像汽车流水生产线上的机器人一样来制造火箭。 这一切都由几台三层楼高（30 英尺）的机器 Stargate 完成，这也是目前世界上最大 3D 金属打印机，据称只要 60 天就可以就能从原材料生产出能用于发射的火箭。</string>
+		<key>author</key>
+		<string>李超凡</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>title</key>
+		<string>当你在看电视的时候，电视也在看你</string>
+		<key>date</key>
+		<string>2019-10-12</string>
+		<key>thumbnail</key>
+		<string>https://s3.ifanr.com/wp-content/uploads/2019/10/qtfy.jpg!720</string>
+		<key>content</key>
+		<string>智能电视广告的问题着实让人心烦。开机看广告，熄屏看广告，播个电视剧前还要看广告。怪不得多年前网友 ziseyinzi 就有吐槽道：
+小时候电脑开机慢，总想着电脑开机要是和电视一样快就好了。在电视厂商的努力下，这个愿望实现了。
+但在广告多、开机慢之外，智能电视的弊端显然不止一个。在我们已习惯（确定逃不脱）智能电视附带的广告的时候，现在又有切实的研究证明大部分智能电视都装有数据追踪器，在默默收集你的行为数据。
+
+换句话说，当你在看电视的时候，电视也在看你喜欢看什么。</string>
+		<key>author</key>
+		<string>冷思真</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>title</key>
+		<string>AI 想为你打造一些新菜单，创新一下食物搭配</string>
+		<key>date</key>
+		<string>2019-10-12</string>
+		<key>thumbnail</key>
+		<string>https://s3.ifanr.com/wp-content/uploads/2019/10/photo-1498837167922-ddd27525d352.jpeg!720</string>
+		<key>content</key>
+		<string>万物皆可用 AI，这句话正在慢慢成为现实。它是工厂里效率最高的工人，能用来识别敏感图片，也能做出以假乱真的视频。更重要的是，它已经开始了创造，从写新闻到写歌，从画画到编故事，它开始创造出一些我们从未见过的东西。现在，AI 也和你的食物息息相关。之前的 AI 仅能完成基础的食品加工工作，筛选出合格的食物原材料。但现在，它已经可以创造新菜单，让你用更短的时间尝到食物的新口味了。</string>
+		<key>author</key>
+		<string>冷思真</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>4</string>
+		<key>title</key>
+		<string>波音保时捷联手，要造飞行电动车</string>
+		<key>date</key>
+		<string>2019-10-12</string>
+		<key>thumbnail</key>
+		<string>https://s3.ifanr.com/wp-content/uploads/2019/10/S19_6037_fine.jpg.x_1163.y_1900.jpg!720</string>
+		<key>content</key>
+		<string>面对城市里越来越拥挤的道路，人们开始将目光投向天空，城市飞行器的概念早已有之，最新加入该领域的是飞机制造商波音和汽车厂商保时捷，两家巨头本周四宣布将通过一种「全电动垂直起降飞机」合作「探索优质的城市空中交通市场以及将城市交通扩展到高空」，换句话说，波音和保时捷要合作造飞行电动汽车了。</string>
+		<key>author</key>
+		<string>吴羚</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>5</string>
+		<key>title</key>
+		<string>Siri 从不生气</string>
+		<key>date</key>
+		<string>2019-10-11</string>
+		<key>thumbnail</key>
+		<string>https://s3.ifanr.com/wp-content/uploads/2019/10/46-1.jpg!720</string>
+		<key>content</key>
+		<string>Siri 是可有可无的吗？或许大部分人会说，是的，可有可无。然而对于那些身体残疾的 Apple 用户来说，Siri 不仅是个有趣的「新鲜玩意儿」，而且在他们的生活中扮演了非常重要的角色。借助 Siri，他们可以完成很多难以办到的事情——眼部障碍者能更轻松地打字和编程，而自闭症患者则了解了更多的常识。</string>
+		<key>author</key>
+		<string>ifanr</string>
+	</dict>
+</array>
+</plist>
