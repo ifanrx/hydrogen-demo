@@ -6,6 +6,6 @@ target 'ios-sdk-demo' do
   use_frameworks!
 
   # Pods for ios-sdk-demo
-  pod 'MinCloud'
+  pod 'MinCloud', :git => 'https://github.com/ifanrx/hydrogen-ios-sdk.git'
 
 end

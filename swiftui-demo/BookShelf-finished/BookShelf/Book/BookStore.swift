@@ -21,11 +21,11 @@ final class BookStore: ObservableObject {
             var books: [Book] = []
             recordList?.records?.forEach({ (record) in
                 let id = record.Id!
-                let name = record.get(key: "bookName") as! String
-                let author = record.get(key: "bookAuthor") as! String
-                let price = record.get(key: "bookPrice") as! Float
-                let content = record.get(key: "bookContent") as! String
-                let coverUrl = record.get(key: "coverUrl") as! String
+                let name = record.get("bookName") as! String
+                let author = record.get("bookAuthor") as! String
+                let price = record.get("bookPrice") as! Float
+                let content = record.get("bookContent") as! String
+                let coverUrl = record.get("coverUrl") as! String
                 let book = Book(id: id, name: name, author: author, price: price, content: content, coverUrl: coverUrl)
                 books.append(book)
             })

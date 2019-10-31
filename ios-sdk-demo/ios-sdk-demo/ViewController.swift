@@ -107,7 +107,7 @@ extension ViewController {
     // 新增一条记录
     private func addBook(_ name: String) {
         let book = table.createRecord()
-        book.set(key: "bookName", value: name)
+        book.set("bookName", value: name)
         book.save { (success, error) in
             if let error = error {
                 let message = "code: \(error.code) / description: \(error.localizedDescription)"
@@ -123,7 +123,7 @@ extension ViewController {
     // 编辑一条记录
     private func edit(_ name: String, index: Int) {
         let record = bookList[index]
-        record.set(key: "bookName", value: name)
+        record.set("bookName", value: name)
         record.update { (success, error) in
             if let error = error {
                 let message = "code: \(error.code) / description: \(error.localizedDescription)"
@@ -179,7 +179,7 @@ extension ViewController {
         cell?.editButton.tag = indexPath.row
         cell?.deleteButton.tag = indexPath.row
         cell?.bookName.isEnabled = false
-        if let bookname = book.get(key: "bookName") as? String {
+        if let bookname = book.get("bookName") as? String {
             cell?.bookName.text = bookname
         }
         return cell ?? UITableViewCell()
