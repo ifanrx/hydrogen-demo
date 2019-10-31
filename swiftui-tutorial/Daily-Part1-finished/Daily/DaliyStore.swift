@@ -20,11 +20,11 @@ final class DaliyStore: ObservableObject {
             var _newsList: [News] = []
             recordList?.records?.forEach({ (record) in
                 let id = record.Id
-                let title = record.get(key: "title") as? String
-                let author = record.get(key: "author") as? String
-                let date = record.get(key: "date") as? String
-                let content = record.get(key: "content") as? String
-                let thumbnail = record.get(key: "thumbnail") as? String
+                let title = record.get("title") as? String
+                let author = record.get("author") as? String
+                let date = record.get("date") as? String
+                let content = record.get("content") as? String
+                let thumbnail = record.get("thumbnail") as? String
                 if let id = id, let title = title, let author = author, let date = date, let content = content, let thumbnail = thumbnail {
                     let news = News(id: id, title: title, author: author, date: date, content: content, thumbnail: thumbnail)
                     _newsList.append(news)
