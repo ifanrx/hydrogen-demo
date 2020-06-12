@@ -4,12 +4,7 @@ var app = getApp();
 import utils from '../../utils/index'
 Page({
   data: {
-    bookList: [
-      {
-        id: 1234,
-        bookName: 'abc',
-      }
-    ],
+    bookList: [],
     creatingBookName: '', // 当前正在创建的书名
     editingBookName: '', // 当前正在编辑的书名
     avatar: '',
