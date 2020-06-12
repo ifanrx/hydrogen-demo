@@ -2,7 +2,7 @@
 App({
   onLaunch: function () {
     // 引入 BaaS SDK
-    require('./sdk-jingdong.dev.js')
+    require('./utils/sdk-jingdong.3.13.0-beta.6.js')
     let clientId = this.globalData.clientId
     jd.BaaS.init(clientId)
   },
