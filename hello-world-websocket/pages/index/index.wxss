@@ -1,0 +1,153 @@
+/**index.wxss**/
+.index {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 28rpx;
+  border: 1rpx solid transparent;
+}
+
+.index-profile {
+  width: 80%;
+  margin: 100rpx auto 60rpx auto;
+}
+
+.index-profile__img {
+  display: block;
+  border-radius: 50%;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+}
+
+.index-profile__nickname {
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.index-title {
+  font-size: 60rpx;
+  font-weight: 800;
+  text-align: center;
+}
+
+.index-books {
+  width: 80%;
+  margin: 50rpx auto;
+  overflow: hidden;
+}
+
+.index-books__input {
+   width: 100%;
+}
+
+.index-books__input input {
+  border: 1rpx solid #eee;
+  height: 60rpx;
+  line-height: 50rpx;
+  padding: 5rpx 10rpx;
+}
+
+.index-books__showLayer {
+  margin-top: 20rpx;
+  max-height: 550rpx;
+  overflow: auto;
+}
+
+.index-books__item {
+  display: flex;
+  min-height: 60rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.index-books__controls--show,
+.index-books__controls--edit-area {
+  flex-basis: 40%;
+}
+
+.index-books__controls--show,
+.index-books__controls--edit-area > input {
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1rpx solid transparent;
+  padding: 0 10rpx;
+}
+
+.index-books__controls--edit-area > input {
+  border: 1rpx solid #eee;
+  padding: 4rpx 10rpx;  /*hack 上下 4rpx 为了解决 input 显示时文字的移动*/
+}
+
+.index-books__controls--create {
+  margin: 40rpx 0;
+}
+
+.btn {
+  font-size: 20rpx;
+  margin: 0 10rpx;
+}
+
+.message-btn {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  color: #aaa;
+  border: 1rpx solid #ccc;
+  border-radius: 8rpx;
+  top: 20rpx;
+  right: 30rpx;
+}
+
+.message-unread {
+  position: absolute;
+  width: 25rpx;
+  height: 25rpx;
+  line-height: 34rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background-color: #E64340;
+  border-radius: 50%;
+  top: -5rpx;
+  right: -5rpx;
+}
+
+.message-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.message-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.message-item {
+  width: 90%;
+  min-height: 150rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  padding: 24rpx 30rpx;
+  font-size: 28rpx;
+  color: #bbb;
+  margin: 40rpx auto;
+}
+
+.message-read-btn {
+  width: 90%;
+  margin: 0 auto 100rpx;
+}

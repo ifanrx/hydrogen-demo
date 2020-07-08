@@ -1,0 +1,21 @@
+{
+  "name": "websocket-danmu-demo",
+  "version": "1.0.0",
+  "description": "websocket-danmu-demo demo",
+  "main": "app.js",
+  "dependencies": {
+    "uuid": "3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "baas",
+    "hydrogen",
+    "demo",
+    "websocket"
+  ],
+  "author": "ifanrx",
+  "license": "ISC"
+}

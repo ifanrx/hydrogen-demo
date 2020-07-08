@@ -1,0 +1,13 @@
+@import "../../utils/weui.wxss";
+
+.weui-cells{
+  text-align: left;
+}
+
+.weui-label{
+  width: 5em;
+}
+
+.page-body-button {
+  margin-bottom: 30rpx;
+}

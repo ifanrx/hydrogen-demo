@@ -1,0 +1,22 @@
+{
+  "name": "baas-hello-world-websocket",
+  "version": "1.0.0",
+  "description": "baas-hello-world-websocket demo",
+  "main": "app.js",
+  "dependencies": {
+    "uuid": "3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "baas",
+    "hydrogen",
+    "hello-world",
+    "demo",
+    "websocket"
+  ],
+  "author": "ifanrx",
+  "license": "ISC"
+}

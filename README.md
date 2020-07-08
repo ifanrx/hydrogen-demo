@@ -1,14 +1,18 @@
 # 知晓云小程序 Demo
 
-我们在这里准备了六个使用[知晓云](https://cloud.minapp.com) BaaS JS SDK 开发的小程序 Demo, 它们分别是：
+我们在这里准备了多个使用[知晓云](https://cloud.minapp.com) BaaS JS SDK 开发的小程序 Demo, 它们分别是：
 
 - [hello-world](hello-world/)：简易的书架小程序，演示了如何在微信小程序中进行基本的用户登录，及知晓云数据表操作
 - [lbs-demo](lbs-demo/)：地图黄页 demo，演示了如何在微信小程序中使用地图功能，及进行知晓云数据表复杂查询
 - [payment-demo](payment-demo/)：微信支付 demo，演示了如何在微信小程序中获取用户授权和发起微信支付
+- [hello-world-websocket](hello-world-websocket/)：在微信书架小程序的基础上增加了站内信通知功能，演示了如何在小程序中使用表订阅（Websocket）功能
+- [websocket-demo-danmu](websocket-demo-danmu/)：视频弹幕 Websocket demo，演示了如何在微信小程序中使用表订阅（Websocket）功能，简单地实现视频弹幕
 - [web-sdk-demo](web-sdk-demo/)：简易的书架 H5 网页，演示了如何在网页中进行基本的进行基本的用户登录注册、及知晓云数据表操作
 - [alipay-sdk-demo](alipay-sdk-demo/)：简易的书架小程序，演示了如何在支付宝小程序中进行基本的用户登录，及知晓云数据表操作
 - [qq-sdk-demo](qq-sdk-demo/)：简易的书架小程序，演示了如何在 QQ 小程序中进行基本的用户登录，及知晓云数据表操作
 - [baidu-sdk-demo](baidu-sdk-demo/)：简易的书架小程序，演示了如何在百度小程序中进行基本的用户登录，及知晓云数据表操作
+- [bytedance-sdk-demo](bytedance-sdk-demo/)：简易的书架小程序，演示了如何在字节跳动（头条）小程序中进行基本的用户登录，及知晓云数据表操作
+- [jd-sdk-demo](jd-sdk-demo/)：简易的书架小程序，演示了如何在京东小程序中进行基本的用户登录，及知晓云数据表操作
 - [ios-sdk-demo](ios-sdk-demo/)：简易的书架 demo，演示了如何在 app 中进行基本的用户登录，及知晓云数据表操作
 - [swiftui-demo](swiftui-demo/)：使用 SwiftUI 创建的简易的书架列表 demo，演示了知晓云数据表简单操作
 
