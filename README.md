@@ -5,8 +5,8 @@
 - [hello-world](hello-world/)：简易的书架小程序，演示了如何在微信小程序中进行基本的用户登录，及知晓云数据表操作
 - [lbs-demo](lbs-demo/)：地图黄页 demo，演示了如何在微信小程序中使用地图功能，及进行知晓云数据表复杂查询
 - [payment-demo](payment-demo/)：微信支付 demo，演示了如何在微信小程序中获取用户授权和发起微信支付
-- [hello-world-websocket](hello-world-websocket/)：在微信书架小程序的基础上增加了站内信通知功能，演示了如何在小程序中使用表订阅（Websocket）功能
-- [websocket-demo-danmu](websocket-demo-danmu/)：视频弹幕 Websocket demo，演示了如何在微信小程序中使用表订阅（Websocket）功能，简单地实现视频弹幕
+- [hello-world-websocket](hello-world-websocket/)：在微信书架小程序的基础上增加了站内信通知功能，演示了如何在小程序中使用表订阅（WebSocket）功能
+- [websocket-demo-danmu](websocket-demo-danmu/)：视频弹幕 WebSocket demo，演示了如何在微信小程序中使用表订阅（WebSocket）功能，简单地实现视频弹幕
 - [web-sdk-demo](web-sdk-demo/)：简易的书架 H5 网页，演示了如何在网页中进行基本的进行基本的用户登录注册、及知晓云数据表操作
 - [alipay-sdk-demo](alipay-sdk-demo/)：简易的书架小程序，演示了如何在支付宝小程序中进行基本的用户登录，及知晓云数据表操作
 - [qq-sdk-demo](qq-sdk-demo/)：简易的书架小程序，演示了如何在 QQ 小程序中进行基本的用户登录，及知晓云数据表操作

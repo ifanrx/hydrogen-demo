@@ -1,4 +1,4 @@
-# websocket-demo-danmu，微信小程序 Websocket 功能 Demo - 视频弹幕
+# websocket-demo-danmu，微信小程序 WebSocket 功能 Demo - 视频弹幕
 
 <p align="center"><img src="../assets/websocket-danmu-demo.png" /></p>
 
@@ -8,7 +8,7 @@
 - 基本的微信小程序开发，控件交互等；
 - 使用 SDK 对后端数据进行基础的增删改查操作；
 - 使用 SDK 进行用户登录；
-- 使用 SDK 进行表订阅操作（Websocket），能够订阅表数据的增删改变化
+- 使用 SDK 进行表订阅操作（WebSocket），能够订阅表数据的增删改变化
 
 
 ### 使用这个 demo
