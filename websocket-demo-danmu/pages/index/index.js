@@ -52,7 +52,7 @@ Page({
         return {
           text: item.text,
           color: getRandomColor(),
-          time: Math.floor(Math.random() * 10),
+          time: Math.ceil(Math.random() * 10),
         }
       })
       this.setData({
