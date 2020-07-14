@@ -5,6 +5,7 @@
       style="width: 100%; height: 422rpx;"
       id="myVideo"
       src="https://dl.ifanr.cn/hydrogen/landing-page/ifanr-products-introduce-v1.1.mp4"
+			bindtimeupdate="videoTimeUpdated"
       binderror="videoErrorCallback"
       danmu-list="{{danmuList}}" enable-danmu controls />
 

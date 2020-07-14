@@ -10,10 +10,10 @@ function getRandomColor() {
   return '#' + rgb.join('')
 }
 
-let subscribeEvent
-
 Page({
+  subscribeEvent: null,
   inputValue: '',
+  videoCurTime: 0,
   data: {
     src: '',
     danmuList: [
@@ -43,7 +43,7 @@ Page({
 
   onUnload() {
     // 取消表订阅
-    if (subscribeEvent.unsubscribe) subscribeEvent.unsubscribe()
+    if (this.subscribeEvent && this.subscribeEvent.unsubscribe) this.subscribeEvent.unsubscribe()
   },
 
   getDanmuList() {
@@ -51,8 +51,8 @@ Page({
       let danmuList = res.data.objects.map(item => {
         return {
           text: item.text,
+          time: item.time,
           color: getRandomColor(),
-          time: Math.ceil(Math.random() * 10),
         }
       })
       this.setData({
@@ -64,7 +64,7 @@ Page({
   // 订阅 danmu_list 数据变化
   subscribeDanmuList() {
     let danmuListTable = new wx.BaaS.TableObject(app.globalData.tableName)
-    subscribeEvent = danmuListTable.subscribe('create', {
+    this.subscribeEvent = danmuListTable.subscribe('create', {
       oninit: () => {
         console.log(`create 订阅成功==>`)
       },
@@ -87,7 +87,7 @@ Page({
 
   bindSendDanmu() {
     this.bindPlay()
-    utils.addDanmu(this.inputValue)
+    utils.addDanmu(this.inputValue, Number.parseInt(this.videoCurTime))
   },
 
   bindPlay() {
@@ -95,6 +95,10 @@ Page({
   },
   bindPause() {
     this.videoContext.pause()
+  },
+
+  videoTimeUpdated(e) {
+    this.videoCurTime = e.detail.currentTime
   },
 
   videoErrorCallback(e) {

@@ -1,10 +1,11 @@
-let addDanmu = text => {
+let addDanmu = (text, time) => {
   let tableName = getApp().globalData.tableName,
     Table = new wx.BaaS.TableObject(tableName),
     Danmu = Table.create()
 
   let data = {
     text,
+    time,
   }
   Danmu.set(data)
     .save()
@@ -15,7 +16,7 @@ let getDanmuList = () => {
   let tableName = getApp().globalData.tableName,
     Table = new wx.BaaS.TableObject(tableName)
 
-  return Table.limit(100).find()
+  return Table.limit(500).find()
 }
 
 module.exports = {
