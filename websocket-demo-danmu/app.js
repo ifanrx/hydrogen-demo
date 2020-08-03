@@ -1,18 +1,13 @@
+const CLIENT_ID = 'a4d2d62965ddb57fa4d6'
+const ENV = 'f1eeb28c9552d4c83df1'
+
 //app.js
 App({
   onLaunch: function() {
     // 引入 BaaS SDK
-    require('./utils/sdk-wechat.dev.js')
-    // wx.BaaS = requirePlugin('sdkPlugin')
-
-    let clientId = this.globalData.clientId
-    wx.BaaS.init(clientId, {
-      autoLogin: true,
+    require('./vendor/sdk-wechat.3.14.0-beta.2')
+    wx.BaaS.init(CLIENT_ID, {
+      env: ENV,
     })
   },
-
-  globalData: {
-    clientId: '', // 从 BaaS 后台获取 ClientID
-    tableName: 'danmu_list', // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
-  }
 })
