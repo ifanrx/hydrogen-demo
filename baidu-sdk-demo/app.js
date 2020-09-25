@@ -2,7 +2,7 @@ App({
   onLaunch(options) {
 
     // 引入 BaaS SDK
-    require('./utils/sdk-baidu.2.8.1.js')
+    require('./utils/sdk-baidu.3.14.3.js')
     let clientId = this.globalData.clientId
     swan.BaaS.init(clientId)
   },
