@@ -2,7 +2,7 @@ App({
   onLaunch(options) {
 
     // 引入 BaaS SDK
-    require('./utils/sdk-qq.2.8.1.js')
+    require('./utils/sdk-qq.3.14.3.js')
     let clientId = this.globalData.clientId
     qq.BaaS.init(clientId)
   },

@@ -2,7 +2,7 @@ App({
   onLaunch(options) {
 
     // 引入 BaaS SDK
-    require('./utils/sdk-alipay.2.0.0')
+    require('./utils/sdk-alipay.3.14.3')
 
     let clientId = this.globalData.clientId
 

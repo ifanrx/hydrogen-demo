@@ -22,4 +22,4 @@
 
 *Step 2:*
 
-Clone 代码后，通过微信开发者工具添加项目。将您自己的 ClientID, tableName 替换代码中（app.js, index.js）的演示 ID，即可运行代码。
+Clone 代码后，通过支付宝开发者工具添加项目。将您自己的 ClientID, tableName 替换代码中（app.js, index.js）的演示 ID，即可运行代码。
