@@ -1,0 +1,9 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "快手小程序demo模板",
+    "navigationBarTextStyle": "black"
+  }
+}
