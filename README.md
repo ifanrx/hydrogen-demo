@@ -13,6 +13,7 @@
 - [baidu-sdk-demo](baidu-sdk-demo/)：简易的书架小程序，演示了如何在百度小程序中进行基本的用户登录，及知晓云数据表操作
 - [bytedance-sdk-demo](bytedance-sdk-demo/)：简易的书架小程序，演示了如何在字节跳动（头条）小程序中进行基本的用户登录，及知晓云数据表操作
 - [jd-sdk-demo](jd-sdk-demo/)：简易的书架小程序，演示了如何在京东小程序中进行基本的用户登录，及知晓云数据表操作
+- [ks-sdk-demo](ks-sdk-demo/)：简易的书架小程序，演示了如何在快手小程序中进行基本的用户登录，及知晓云数据表操作
 - [ios-sdk-demo](ios-sdk-demo/)：简易的书架 demo，演示了如何在 app 中进行基本的用户登录，及知晓云数据表操作
 - [swiftui-demo](swiftui-demo/)：使用 SwiftUI 创建的简易的书架列表 demo，演示了知晓云数据表简单操作
 
