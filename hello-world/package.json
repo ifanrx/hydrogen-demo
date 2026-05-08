@@ -4,7 +4,7 @@
   "description": "baas-hello-world demo",
   "main": "app.js",
   "dependencies": {
-    "uuid": "3.0.1"
+    "uuid": "14.0.0"
   },
   "devDependencies": {},
   "scripts": {
